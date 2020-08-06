@@ -1,5 +1,4 @@
 const express = require("express");
-
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,8 +14,6 @@ if (process.env.NODE_ENV === "production") {
 
 //Routes
 app.use(routes);
-
-//Connecting to MYSQL
 
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
