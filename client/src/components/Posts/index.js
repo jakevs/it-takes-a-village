@@ -27,7 +27,7 @@ export default function AutoGridNoWrap() {
             <Paper className={classes.paper}>
                 <Grid container wrap="nowrap" spacing={2}>
                     <Grid item>
-                        <Avatar>HP</Avatar> // username
+                        <Avatar>{username}</Avatar> // username
                     </Grid>
                     <Grid item m>
                         <Typography>{title}</Typography> //user post title
