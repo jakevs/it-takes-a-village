@@ -33,21 +33,15 @@ Please send an email if you wish to contribute.
 
 Contact: https://www.linkedin.com/in/james-van-slyke/
 
-    <div class="CircleBadge CircleBadge--medium bg-gray-dark">
-
 <img src="https://avatars.githubusercontent.com/wslifer" height="90" width="90">   
    </div>
 
 Contact: https://www.linkedin.com/in/wesley-slifer/
 
-    <div class="CircleBadge CircleBadge--medium bg-gray-dark">
-
 <img src="https://avatars.githubusercontent.com/hollypro87" height="90" width="90">   
    </div>
 
 Contact: https://www.linkedin.com/in/holly-prothe/
-
-    <div class="CircleBadge CircleBadge--medium bg-gray-dark">
 
 <img src="https://avatars.githubusercontent.com/COSalinas" height="90" width="90">   
    </div>
