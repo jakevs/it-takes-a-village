@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const message = `Sample post needs work`;
 
 export default function AutoGridNoWrap() {
     const classes = useStyles();
@@ -31,13 +30,13 @@ export default function AutoGridNoWrap() {
                         <Avatar>HP</Avatar> // username
                     </Grid>
                     <Grid item m>
-                        <Typography>(title)</Typography> //user post title
+                        <Typography>{title}</Typography> //user post title
                     </Grid>
                     <Grid item s>
-                        <Typography>{message}</Typography> //user post
+                        <Typography>{content}</Typography> //user post
                     </Grid>
                     <Grid item xs>
-                        <Typography>(date and time)</Typography> //date and time of post
+                        <Typography>{createdAt}</Typography> //date and time of post
                     </Grid>
                 </Grid>
             </Paper>
