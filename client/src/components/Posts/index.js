@@ -74,27 +74,3 @@ function Post() {
 
 export default Posts;
 
-export default function AutoGridNoWrap() {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            <Paper className={classes.paper}>
-                <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item>
-                        <Avatar>{post.username}</Avatar> // username
-                    </Grid>
-                    <Grid item m>
-                        <Typography>{post.title}</Typography> //user post title
-                    </Grid>
-                    <Grid item s>
-                        <Typography>{post.content}</Typography> //user post
-                    </Grid>
-                    <Grid item xs>
-                        <Typography>{post.createdAt}</Typography> //date and time of post
-                    </Grid>
-                </Grid>
-            </Paper>
-        </div>
-    );
-}
