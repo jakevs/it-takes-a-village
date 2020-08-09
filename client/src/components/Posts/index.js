@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import utils from '../utils/postAPI'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,28 +19,58 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+function Post() {
+    // Setting our component's initial state
+    const [post, setPost] = useState([])
+    const [formObject, setFormObject] = useState({})
 
-export default function AutoGridNoWrap() {
-    const classes = useStyles();
+    useEffect(() => {
+        loadPost()
+    }, [])
+
+    function loadPost() {
+        API.getPost()
+            .then(res =>
+                setPost(res.data)
+            )
+            .catch(err => console.log(err));
+    };
+
 
     return (
-        <div className={classes.root}>
-            <Paper className={classes.paper}>
-                <Grid container wrap="nowrap" spacing={2}>
-                    <Grid item>
-                        <Avatar>{username}</Avatar> // username
-                    </Grid>
-                    <Grid item m>
-                        <Typography>{title}</Typography> //user post title
-                    </Grid>
-                    <Grid item s>
-                        <Typography>{content}</Typography> //user post
-                    </Grid>
-                    <Grid item xs>
-                        <Typography>{createdAt}</Typography> //date and time of post
-                    </Grid>
-                </Grid>
-            </Paper>
-        </div>
+        <Container fluid>
+            <Row>
+                <Col size="md-6 sm-12">
+                    <Jumbotron>
+                        <h1>Recent Posts</h1>
+                    </Jumbotron>
+                    {post.length ? (
+                        <List>
+                            <Paper className={classes.paper}>
+                                <Grid container wrap="nowrap" spacing={2}></Grid>
+                                {post.map(post => {
+                                    return (
+                                        <ListItem key={post._id}>
+                                            <a href={"/post/" + post._id}>
+                                                <strong>
+                                                    {post.title} by {post.author}
+                                                </strong>
+                                            </a>
+                                            <DeleteBtn onClick={() => { }} />
+                                        </ListItem>
+                                    );
+                                })}
+                            </Paper>
+                        </List>
+                    ) : (
+                            <h3>No Results to Display</h3>
+                        )}
+                </Col>
+            </Row>
+        </Container >
     );
 }
+
+
+export default Posts;
+
