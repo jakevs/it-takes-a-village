@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import utils from '../utils/postAPI'
+import utils from '../utils/postAPI';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -70,7 +70,6 @@ function Post() {
         </Container >
     );
 }
-
 
 export default Posts;
 
