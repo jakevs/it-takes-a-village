@@ -4,7 +4,7 @@ const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
 
 const passport = require("passport");
-const auth = require("./routes/auth");
+const auth = require("./routes/api/auth");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
