@@ -69,16 +69,17 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2)
   },
   toolbar: {
-    minHeight: 128,
-    alignItems: "flex-start",
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(2)
+    paddingRight: 0,
+    paddingLeft: 0,
+    width: "100vw",
+    display: "flex",
+    justifyContent: "center"
   },
   title: {
     flexGrow: 1,
