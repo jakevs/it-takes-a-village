@@ -1,7 +1,8 @@
 const express = require("express");
 const routes = require("./routes");
 const mongoose = require("mongoose");
-
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -15,9 +16,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Passports
-app.use(session({ secret: "cats", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+const User = require("./models/User");
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 //Routes
 app.use(routes);
