@@ -14,6 +14,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+//Passports
+app.use(session({ secret: "cats", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Routes
 app.use(routes);
 
