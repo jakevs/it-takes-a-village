@@ -14,10 +14,10 @@ passport.deserializeUser((id, done) => {
 
 //Local Strategy
 passport.use(
-  new LocalStrategy((username, password, done) => {
+  new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
     User.findOne({
       where: {
-        username: username,
+        email: email,
       },
     }).then((dbUser) => {
       if (!dbUser) {
