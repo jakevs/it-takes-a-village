@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
-import utils from '../utils/postAPI';
+// import Avatar from '@material-ui/core/Avatar';
+// import Typography from '@material-ui/core/Typography';
+import API from '../utils/postAPI';
+import Container from '@material-ui/core/Container';
+
+
+
+import List from '@material-ui/core/List';
+
+import ListItem from '@material-ui/core/ListItem';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,39 +45,42 @@ function Post() {
     };
 
 
+    const classes = useStyles();
+
     return (
-        <Container fluid>
-            <Row>
-                <Col size="md-6 sm-12">
-                    <Jumbotron>
-                        <h1>Recent Posts</h1>
-                    </Jumbotron>
-                    {post.length ? (
-                        <List>
-                            <Paper className={classes.paper}>
-                                <Grid container wrap="nowrap" spacing={2}></Grid>
-                                {post.map(post => {
-                                    return (
-                                        <ListItem key={post._id}>
-                                            <a href={"/post/" + post._id}>
-                                                <strong>
-                                                    {post.title} by {post.author}
-                                                </strong>
-                                            </a>
-                                            <DeleteBtn onClick={() => { }} />
-                                        </ListItem>
-                                    );
-                                })}
-                            </Paper>
-                        </List>
-                    ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                </Col>
-            </Row>
-        </Container >
+        <div>
+            <Container fluid>
+
+
+
+                <h1>Recent Posts</h1>
+                {post.length ? (
+                    <List>
+                        <Paper className={classes.root}>
+                            <Grid container wrap="nowrap" spacing={2}></Grid>
+                            {post.map(post => {
+                                return (
+                                    <ListItem key={post._id}>
+                                        <a href={"/post/" + post._id}>
+                                            <strong>
+                                                {post.title} by {post.name}
+                                            </strong>
+                                        </a>
+                                        <Button onClick={() => { }} />
+                                    </ListItem>
+                                );
+                            })}
+                        </Paper>
+                    </List>
+                ) : (
+                        <h3>No Results to Display</h3>
+                    )}
+
+
+            </Container >
+        </div >
     );
 }
 
-export default Posts;
+export default Post;
 
