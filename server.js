@@ -43,6 +43,7 @@ app.use(
 
 //Routes
 app.use(routes);
+app.use("/api/auth", auth);
 
 //Express server start
 app.listen(PORT, function () {
