@@ -15,15 +15,19 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2)
   },
   toolbar: {
+    backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
-    width: "100vw",
     display: "flex",
     justifyContent: "center"
   },
   title: {
     flexGrow: 1,
-    alignSelf: "flex-end"
+    border: 0,
+    borderRadius: 3,
+    fontFamily: "Lemonada",
+    color: "white",
+    padding: "0 30px"
   }
 }));
 
@@ -34,23 +38,28 @@ export default function Nav() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
+          <IconButton className="image">
+            <img src="https://img.icons8.com/ios/50/FFFFFF/neighbour.png" />{" "}
+          </IconButton>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           ></IconButton>
-          <Typography className={classes.title} variant="h5" noWrap>
+          <Typography
+            className={classes.title}
+            variant="h5"
+            fontFamily="Lemonada"
+            align="center"
+            noWrap
+          >
             It Takes a... <h4>Village</h4>
           </Typography>
           <IconButton aria-label="search" color="inherit">
             <AccountCircle />
           </IconButton>
-          <IconButton
-            aria-label="display more actions"
-            edge="end"
-            color="inherit"
-          >
+          <IconButton aria-label="search" color="inherit">
             <MoreIcon />
           </IconButton>
         </Toolbar>
