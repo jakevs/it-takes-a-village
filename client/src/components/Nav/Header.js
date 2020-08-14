@@ -6,20 +6,21 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   toolbar: {
     backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   title: {
     flexGrow: 1,
@@ -27,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     fontFamily: "Lemonada",
     color: "white",
-    padding: "0 30px"
-  }
+    padding: "0 30px",
+  },
 }));
 
 export default function Nav() {
@@ -56,9 +57,11 @@ export default function Nav() {
           >
             It Takes a... <h4>Village</h4>
           </Typography>
-          <IconButton aria-label="search" color="inherit">
-            <AccountCircle />
-          </IconButton>
+          <Link to="/profile">
+            <IconButton aria-label="search" color="inherit">
+              <AccountCircle />
+            </IconButton>
+          </Link>
           <IconButton aria-label="search" color="inherit">
             <MoreIcon />
           </IconButton>
