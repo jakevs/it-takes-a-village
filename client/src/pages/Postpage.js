@@ -9,6 +9,7 @@ import Container from "@material-ui/core/Container";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,15 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2),
+  },
+  form: {
+    position: "absolute",
+    right: 50,
+    top: "28%",
+  },
+  postText: {
+    width: 300,
+    marginTop: 20,
   },
 }));
 
@@ -65,6 +75,27 @@ function Post() {
         ) : (
           <h3>No Results to Display</h3>
         )}
+      </Container>
+      <Container fluid>
+        <form noValidate autoComplete="off" className={classes.form}>
+          <div>
+            <TextField
+              required
+              id="standard-required"
+              placeholder="Post subject"
+            />
+          </div>
+          <div>
+            <TextField
+              label="Description"
+              placeholder="Tell us what you need"
+              multiline
+              rows={4}
+              variant="outlined"
+              className={classes.postText}
+            />
+          </div>
+        </form>
       </Container>
     </div>
   );
