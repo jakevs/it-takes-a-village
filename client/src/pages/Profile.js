@@ -1,3 +1,4 @@
+// import React from "react"
 // import React from "react";
 import Nav from "./components/Nav/Header";
 import Footer from "./components/Footer/Footer";
@@ -14,6 +15,13 @@ import Footer from "./components/Footer/Footer";
 // export default Profile;
 
 import React, { useState, useEffect } from "react";
+//import DeleteBtn from "../components/DeleteBtn";
+//import Jumbotron from "../components/Jumbotron";
+import API from "../components/utils/postAPI";
+import { Link } from "react-router-dom";
+//import { Col, Row, Container } from "../components/Grid";
+//import { List, ListItem } from "../components/List";
+//import { Input, TextArea, FormBtn } from "../components/Form";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
@@ -60,6 +68,8 @@ function Skills() {
       API.saveBook({
         title: formObject.title,
         author: formObject.author,
+        synopsis: formObject.synopsis,
+
         synopsis: formObject.synopsis
       })
         .then((res) => loadBooks())
@@ -67,6 +77,7 @@ function Skills() {
     }
   }
 
+  /* return (
   return (
     <Container fluid>
       <Nav />
@@ -124,6 +135,7 @@ function Skills() {
       </Row>
       <Footer />
     </Container>
+  ); */
   );
 }
 
