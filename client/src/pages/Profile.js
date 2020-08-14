@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import API from "../components/utils/postAPI";
+import API from "../utils/postAPI";
 import { Link } from "react-router-dom";
 
 function Profile() {
