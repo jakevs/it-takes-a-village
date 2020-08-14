@@ -11,11 +11,11 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/">
-            <Post />
-          </Route>
           <Route exact path="/profile">
             <Profile />
+          </Route>
+          <Route exact path="/">
+            <Post />
           </Route>
         </Switch>
         <Footer />
