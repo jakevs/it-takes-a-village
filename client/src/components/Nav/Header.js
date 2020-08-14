@@ -10,17 +10,17 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   toolbar: {
     backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   title: {
     flexGrow: 1,
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     fontFamily: "Lemonada",
     color: "white",
-    padding: "0 30px",
-  },
+    padding: "0 30px"
+  }
 }));
 
 export default function Nav() {
@@ -55,7 +55,7 @@ export default function Nav() {
             align="center"
             noWrap
           >
-            It Takes a... <h4>Village</h4>
+            It Takes a... <h2>Village</h2>
           </Typography>
           <Link to="/profile">
             <IconButton aria-label="search" color="inherit">
