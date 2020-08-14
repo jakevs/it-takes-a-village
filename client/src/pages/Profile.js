@@ -1,7 +1,4 @@
 // import React from "react"
-// import React from "react";
-import Nav from "./components/Nav/Header";
-import Footer from "./components/Footer/Footer";
 
 // function Profile() {
 //   return (
@@ -22,13 +19,6 @@ import { Link } from "react-router-dom";
 //import { Col, Row, Container } from "../components/Grid";
 //import { List, ListItem } from "../components/List";
 //import { Input, TextArea, FormBtn } from "../components/Form";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
 
 function Skills() {
   // Setting our component's initial state
@@ -70,7 +60,7 @@ function Skills() {
         author: formObject.author,
         synopsis: formObject.synopsis,
 
-        synopsis: formObject.synopsis
+        synopsis: formObject.synopsis,
       })
         .then((res) => loadBooks())
         .catch((err) => console.log(err));
@@ -135,8 +125,8 @@ function Skills() {
       </Row>
       <Footer />
     </Container>
-  ); */
-  );
+  ); 
+  );*/
 }
 
 export default Skills;
