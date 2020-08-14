@@ -54,17 +54,18 @@ function Posts() {
         {posts.length ? (
           <List>
             <Paper className={classes.root}>
-              <Grid container wrap="nowrap" spacing={2}></Grid>
-              {posts.map((post) => (
-                <ListItem key={post._id}>
-                  <a href={"/post/" + post._id}>
-                    <strong>
-                      {post.title} by {post.name}
-                    </strong>
-                  </a>
-                  <Button onClick={() => {}} />
-                </ListItem>
-              ))}
+              {posts.map((post) => {
+                return (
+                  <ListItem key={post._id}>
+                    <a href={"/post/" + post._id}>
+                      <strong>
+                        {post.title} by {post.name}
+                      </strong>
+                    </a>
+                    <Button onClick={() => {}} />
+                  </ListItem>
+                );
+              })}
             </Paper>
           </List>
         ) : (
