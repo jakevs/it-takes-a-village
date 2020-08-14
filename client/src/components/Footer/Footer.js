@@ -22,8 +22,11 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
     // marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0)
-  }
+    padding: theme.spacing(6, 0),
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+  },
 }));
 
 export default function Footer(props) {
@@ -52,5 +55,5 @@ export default function Footer(props) {
 
 Footer.propTypes = {
   description: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
