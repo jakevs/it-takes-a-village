@@ -43,30 +43,28 @@ function Post() {
   return (
     <div>
       <Container fluid>
-        <Grid container spacing={3}>
-          <h1>Recent Posts</h1>
-          {post.length ? (
-            <List>
-              <Paper className={classes.root}>
-                <Grid container wrap="nowrap" spacing={2}></Grid>
-                {post.map((post) => {
-                  return (
-                    <ListItem key={post._id}>
-                      <a href={"/post/" + post._id}>
-                        <strong>
-                          {post.title} by {post.name}
-                        </strong>
-                      </a>
-                      <Button onClick={() => {}} />
-                    </ListItem>
-                  );
-                })}
-              </Paper>
-            </List>
-          ) : (
-            <h3>No Results to Display</h3>
-          )}
-        </Grid>
+        <h1>Recent Posts</h1>
+        {post.length ? (
+          <List>
+            <Paper className={classes.root}>
+              <Grid container wrap="nowrap" spacing={2}></Grid>
+              {post.map((post) => {
+                return (
+                  <ListItem key={post._id}>
+                    <a href={"/post/" + post._id}>
+                      <strong>
+                        {post.title} by {post.name}
+                      </strong>
+                    </a>
+                    <Button onClick={() => {}} />
+                  </ListItem>
+                );
+              })}
+            </Paper>
+          </List>
+        ) : (
+          <h3>No Results to Display</h3>
+        )}
       </Container>
     </div>
   );
