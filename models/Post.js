@@ -5,7 +5,7 @@ const PostSchema = new Schema({
   userId: {
     type: String,
     trim: true,
-    required: "ID is required.",
+    //required: "ID is required.",
   },
   name: {
     type: String,
@@ -25,7 +25,7 @@ const PostSchema = new Schema({
   location: {
     type: String,
     trim: true,
-    required: "Location is required.",
+    //required: "Location is required.",
   },
   category: {
     type: String,
