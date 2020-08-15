@@ -32,6 +32,16 @@ const postSeed = [
     content: "Does this post appear where it is supposed to?",
     name: "Wesley Slifer",
   },
+  {
+    title: "Test 4",
+    content: "This post should work too :)",
+    name: "Wesley Slifer",
+  },
+  {
+    title: "Test 5",
+    content: "This post should work too :):)",
+    name: "Wesley Slifer",
+  },
 ];
 
 db.User.remove({})

@@ -12,12 +12,11 @@ import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   postCard: {
-    flexGrow: 1,
     overflow: "hidden",
     padding: theme.spacing(0, 3),
     backgroundColor: "#2E8B57",
-    marginBottom: 10,
-    marginLeft: 10,
+    marginBottom: 30,
+    marginLeft: 30,
     width: 275,
     height: 250,
     color: "white",
@@ -41,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
   },
   flexdiv: {
     display: "flex",
-    justifyContent: "space-between",
     flexWrap: "wrap",
   },
 }));
