@@ -40,9 +40,9 @@ export default function Nav() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <IconButton className="image">
+          <Button size="large" color="inherit" to="/" component={Link}>
             <img src="https://img.icons8.com/ios/50/FFFFFF/neighbour.png" />{" "}
-          </IconButton>
+          </Button>
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -56,7 +56,7 @@ export default function Nav() {
             align="center"
             noWrap
           >
-            It Takes a... <h2>Village</h2>
+            It Takes a... <h1>Village</h1>
           </Typography>
           <Button color="inherit" to="/profile" component={Link}>
             <AccountCircle />
