@@ -7,12 +7,19 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  postCard: {
     overflow: "hidden",
     padding: theme.spacing(0, 3),
+    backgroundColor: "#2E8B57",
+    marginBottom: 30,
+    marginLeft: 30,
+    width: 275,
+    height: 250,
+    color: "white",
   },
   paper: {
     maxWidth: 400,
@@ -20,13 +27,20 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   form: {
-    float: "right",
-    marginTop: 20,
-    marginRight: 20,
+    //float: "right",
+    justifyContent: "center",
+    marginTop: 75,
   },
-  postText: {
+  postInput: {
     width: 300,
     marginTop: 20,
+  },
+  postTitle: {
+    color: "white",
+  },
+  flexdiv: {
+    display: "flex",
+    flexWrap: "wrap",
   },
 }));
 
@@ -49,30 +63,38 @@ function Posts() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={9} sm={9}>
         <h1>Recent Posts</h1>
         {posts.length ? (
-          <List>
-            <Paper className={classes.root}>
-              {posts.map((post) => {
-                return (
+          <div className={classes.flexdiv}>
+            {posts.map((post) => {
+              return (
+                <Paper className={classes.postCard}>
                   <ListItem key={post._id}>
-                    <a href={"/post/" + post._id}>
+                    <Link
+                      href={"/post/" + post._id}
+                      className={classes.postTitle}
+                      target="_blank"
+                    >
                       <strong>
-                        {post.title} by {post.name}
+                        {post.title} : {post.name}
                       </strong>
-                    </a>
+                    </Link>
                     <Button onClick={() => { }} />
                   </ListItem>
-                );
-              })}
-            </Paper>
-          </List>
+                  <hr />
+                  <Typography className={classes.postContent}>
+                    {post.content}
+                  </Typography>
+                </Paper>
+              );
+            })}
+          </div>
         ) : (
             <h3>No Results to Display</h3>
           )}
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={3} sm={3}>
         <form noValidate autoComplete="off" className={classes.form}>
           <div>
             <TextField
@@ -88,7 +110,7 @@ function Posts() {
               multiline
               rows={4}
               variant="outlined"
-              className={classes.postText}
+              className={classes.postInput}
             />
           </div>
         </form>
