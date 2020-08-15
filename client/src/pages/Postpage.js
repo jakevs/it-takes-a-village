@@ -80,7 +80,7 @@ function Posts() {
                         {post.title} : {post.name}
                       </strong>
                     </Link>
-                    <Button onClick={() => { }} />
+                    <Button onClick={() => {}} />
                   </ListItem>
                   <hr />
                   <Typography className={classes.postContent}>
