@@ -7,12 +7,19 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  postCard: {
     flexGrow: 1,
     overflow: "hidden",
     padding: theme.spacing(0, 3),
+    backgroundColor: "#2E8B57",
+    marginBottom: 10,
+    marginLeft: 10,
+    width: 250,
+    height: 250,
   },
   paper: {
     maxWidth: 400,
@@ -24,9 +31,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     marginRight: 20,
   },
-  postText: {
+  postInput: {
     width: 300,
     marginTop: 20,
+  },
+  postContent: {
+    color: "white",
+  },
+  postTitle: {
+    color: "white",
   },
 }));
 
@@ -53,20 +66,28 @@ function Posts() {
         <h1>Recent Posts</h1>
         {posts.length ? (
           <List>
-            <Paper className={classes.root}>
-              {posts.map((post) => {
-                return (
+            {posts.map((post) => {
+              return (
+                <Paper className={classes.postCard}>
                   <ListItem key={post._id}>
-                    <a href={"/post/" + post._id}>
+                    <Link
+                      href={"/post/" + post._id}
+                      className={classes.postTitle}
+                      target="_blank"
+                    >
                       <strong>
                         {post.title} by {post.name}
                       </strong>
-                    </a>
+                    </Link>
                     <Button onClick={() => {}} />
                   </ListItem>
-                );
-              })}
-            </Paper>
+                  <hr />
+                  <Typography className={classes.postContent}>
+                    {post.content}
+                  </Typography>
+                </Paper>
+              );
+            })}
           </List>
         ) : (
           <h3>No Results to Display</h3>
@@ -88,7 +109,7 @@ function Posts() {
               multiline
               rows={4}
               variant="outlined"
-              className={classes.postText}
+              className={classes.postInput}
             />
           </div>
         </form>
