@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,11 +58,10 @@ export default function Nav() {
           >
             It Takes a... <h2>Village</h2>
           </Typography>
-          <Link to="/profile">
-            <IconButton aria-label="search" color="inherit">
-              <AccountCircle />
-            </IconButton>
-          </Link>
+          <Button color="inherit" to="/profile" component={Link}>
+            <AccountCircle />
+          </Button>
+
           <IconButton aria-label="search" color="inherit">
             <MoreIcon />
           </IconButton>
