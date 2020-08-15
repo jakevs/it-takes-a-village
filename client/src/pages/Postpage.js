@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   postCard: {
     overflow: "hidden",
     padding: theme.spacing(0, 3),
-    backgroundColor: "#2E8B57",
+    backgroundColor: "#65C295",
     marginBottom: 30,
     marginLeft: 30,
     width: 275,
@@ -110,8 +110,8 @@ function Posts() {
             })}
           </div>
         ) : (
-            <h3>No Results to Display</h3>
-          )}
+          <h3>No Results to Display</h3>
+        )}
       </Grid>
       <Grid item xs={3} sm={3}>
         <form noValidate autoComplete="off" className={classes.form}>
