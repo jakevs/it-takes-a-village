@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     padding: "0 30px"
   },
-  h5: {
+  h6: {
     fontFamily: "'Roboto', sans-serif",
   }
 }));
@@ -59,7 +59,7 @@ export default function Nav() {
             align="center"
             noWrap
           >
-            <h5 className={classes.h5}>It Takes a...</h5> <h1>Village</h1>
+            <h6 className={classes.h6}>It Takes a...</h6> <h1>Village</h1>
           </Typography>
           <Button color="inherit" to="/profile" component={Link}>
             <AccountCircle />
