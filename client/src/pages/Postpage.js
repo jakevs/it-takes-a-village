@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   postCard: {
     overflow: "hidden",
     padding: theme.spacing(0, 3),
-    backgroundColor: "#65C295",
+    backgroundColor: "#2E8B57",
     marginBottom: 30,
     marginLeft: 30,
     width: 275,
