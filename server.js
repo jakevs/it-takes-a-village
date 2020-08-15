@@ -7,7 +7,7 @@ const passport = require("passport");
 const auth = require("./routes/auth");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const routes = require("./routes");
 
 //Connection to mongo
@@ -20,7 +20,7 @@ mongoose
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 //Serving static assets
 if (process.env.NODE_ENV === "production") {
