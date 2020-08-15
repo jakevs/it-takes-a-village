@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import API from "../utils/postAPI";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-// import Avatar from '@material-ui/core/Avatar';
-// import Typography from '@material-ui/core/Typography';
-import API from "../components/utils/postAPI";
-import Container from "@material-ui/core/Container";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Button from "@material-ui/core/Button";
@@ -23,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   form: {
-    position: "absolute",
-    right: 50,
-    top: "28%",
+    float: "right",
+    marginTop: 20,
+    marginRight: 20,
   },
   postText: {
     width: 300,
@@ -33,32 +30,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Post() {
+function Posts() {
   // Setting our component's initial state
-  const [post, setPost] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [formObject, setFormObject] = useState({});
 
   useEffect(() => {
-    loadPost();
+    loadPosts();
   }, []);
 
-  function loadPost() {
-    API.getPost()
-      .then((res) => setPost(res.data))
+  function loadPosts() {
+    API.getPosts()
+      .then((res) => setPosts(res.data))
       .catch((err) => console.log(err));
   }
 
   const classes = useStyles();
 
   return (
-    <div>
-      <Container fluid>
+    <Grid container spacing={3}>
+      <Grid item xs={12} sm={6}>
         <h1>Recent Posts</h1>
-        {post.length ? (
+        {posts.length ? (
           <List>
             <Paper className={classes.root}>
-              <Grid container wrap="nowrap" spacing={2}></Grid>
-              {post.map((post) => {
+              {posts.map((post) => {
                 return (
                   <ListItem key={post._id}>
                     <a href={"/post/" + post._id}>
@@ -75,8 +71,8 @@ function Post() {
         ) : (
           <h3>No Results to Display</h3>
         )}
-      </Container>
-      <Container fluid>
+      </Grid>
+      <Grid item xs={12} sm={6}>
         <form noValidate autoComplete="off" className={classes.form}>
           <div>
             <TextField
@@ -96,9 +92,9 @@ function Post() {
             />
           </div>
         </form>
-      </Container>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
 
-export default Post;
+export default Posts;
