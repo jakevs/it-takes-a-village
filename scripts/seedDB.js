@@ -18,13 +18,28 @@ const userSeed = [
 
 const postSeed = [
   {
-    title: "Test needs",
+    title: "Test 1",
     content: "Testing post",
     name: "Wesley Slifer",
   },
   {
     title: "Test 2",
     content: "Testing 2nd post",
+    name: "Wesley Slifer",
+  },
+  {
+    title: "Test 3",
+    content: "Does this post appear where it is supposed to?",
+    name: "Wesley Slifer",
+  },
+  {
+    title: "Test 4",
+    content: "This post should work too :)",
+    name: "Wesley Slifer",
+  },
+  {
+    title: "Test 5",
+    content: "This post should work too :):)",
     name: "Wesley Slifer",
   },
 ];
