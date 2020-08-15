@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
   },
+  submitBtn: {
+    marginTop: 10,
+  },
 }));
 
 function Posts() {
@@ -56,6 +59,22 @@ function Posts() {
   function loadPosts() {
     API.getPosts()
       .then((res) => setPosts(res.data))
+      .catch((err) => console.log(err));
+  }
+
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setFormObject({ ...formObject, [name]: value });
+  }
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    API.savePost({
+      title: formObject.title,
+      content: formObject.content,
+    })
+      .then((res) => loadPosts())
       .catch((err) => console.log(err));
   }
 
@@ -91,16 +110,17 @@ function Posts() {
             })}
           </div>
         ) : (
-            <h3>No Results to Display</h3>
-          )}
+          <h3>No Results to Display</h3>
+        )}
       </Grid>
       <Grid item xs={3} sm={3}>
         <form noValidate autoComplete="off" className={classes.form}>
           <div>
             <TextField
               required
-              id="standard-required"
+              onChange={handleInputChange}
               placeholder="Post subject"
+              name="title"
             />
           </div>
           <div>
@@ -110,9 +130,19 @@ function Posts() {
               multiline
               rows={4}
               variant="outlined"
+              name="content"
+              onChange={handleInputChange}
               className={classes.postInput}
             />
           </div>
+          <Button
+            onClick={handleFormSubmit}
+            variant="contained"
+            color="primary"
+            className={classes.submitBtn}
+          >
+            Post
+          </Button>
         </form>
       </Grid>
     </Grid>
