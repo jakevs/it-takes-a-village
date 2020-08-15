@@ -32,11 +32,11 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 30px",
   },
   name: {
-    fontSize: "90px",
-    marginTop: "0"
+    fontSize: "80px",
+    margin: "0",
   },
   h6: {
-    marginBottom: "0"
+    margin: "0"
   }
 }));
 
