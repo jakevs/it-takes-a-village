@@ -7,19 +7,17 @@ const PostSchema = new Schema({
     trim: true,
     required: "ID is required.",
   }, */
-  name: {
+  /* name: {
     type: String,
     trim: true,
     required: "Username is required.",
-  },
+  }, */
   title: {
     type: String,
-    trim: true,
     required: "Post title is required.",
   },
   content: {
     type: String,
-    trim: true,
     required: "Post must not be empty.",
   },
   /* location: {
