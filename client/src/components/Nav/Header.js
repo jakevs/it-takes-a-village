@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2)
   },
   toolbar: {
-    backgroundColor: "#2E8B57",
+    backgroundColor: "#65C295",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
@@ -27,9 +27,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     border: 0,
     borderRadius: 3,
-    fontFamily: "Lemonada",
+    fontFamily: "'Playfair Display', serif",
     color: "white",
-    padding: "0 30px"
+    padding: "0 30px",
+  },
+  name: {
+    fontSize: "80px",
+    margin: "0",
+  },
+  h6: {
+    margin: "0"
   }
 }));
 
@@ -51,12 +58,11 @@ export default function Nav() {
           ></IconButton>
           <Typography
             className={classes.title}
-            variant="h5"
-            fontFamily="Lemonada"
+            variant="h4"
             align="center"
             noWrap
           >
-            It Takes a... <h1>Village</h1>
+            <h6 className={classes.h6}>It Takes a...</h6> <h1 className={classes.name}>Village</h1>
           </Typography>
           <Button color="inherit" to="/profile" component={Link}>
             <AccountCircle />
