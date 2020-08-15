@@ -27,12 +27,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     border: 0,
     borderRadius: 3,
-    fontFamily: "'Bad Script', cursive",
+    fontFamily: "'Playfair Display', serif",
     color: "white",
-    padding: "0 30px"
+    padding: "0 30px",
+  },
+  name: {
+    fontSize: "90px",
+    marginTop: "0"
   },
   h6: {
-    fontFamily: "'Roboto', sans-serif",
+    marginBottom: "0"
   }
 }));
 
@@ -55,11 +59,10 @@ export default function Nav() {
           <Typography
             className={classes.title}
             variant="h4"
-
             align="center"
             noWrap
           >
-            <h6 className={classes.h6}>It Takes a...</h6> <h1>Village</h1>
+            <h6 className={classes.h6}>It Takes a...</h6> <h1 className={classes.name}>Village</h1>
           </Typography>
           <Button color="inherit" to="/profile" component={Link}>
             <AccountCircle />
