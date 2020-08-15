@@ -18,8 +18,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#2E8B57",
     marginBottom: 10,
     marginLeft: 10,
-    width: 250,
+    width: 275,
     height: 250,
+    color: "white",
   },
   paper: {
     maxWidth: 400,
@@ -27,19 +28,21 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   form: {
-    float: "right",
-    marginTop: 20,
-    marginRight: 20,
+    //float: "right",
+    justifyContent: "center",
+    marginTop: 75,
   },
   postInput: {
     width: 300,
     marginTop: 20,
   },
-  postContent: {
-    color: "white",
-  },
   postTitle: {
     color: "white",
+  },
+  flexdiv: {
+    display: "flex",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
   },
 }));
 
@@ -62,10 +65,10 @@ function Posts() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={9} sm={9}>
         <h1>Recent Posts</h1>
         {posts.length ? (
-          <List>
+          <div className={classes.flexdiv}>
             {posts.map((post) => {
               return (
                 <Paper className={classes.postCard}>
@@ -76,7 +79,7 @@ function Posts() {
                       target="_blank"
                     >
                       <strong>
-                        {post.title} by {post.name}
+                        {post.title} : {post.name}
                       </strong>
                     </Link>
                     <Button onClick={() => {}} />
@@ -88,12 +91,12 @@ function Posts() {
                 </Paper>
               );
             })}
-          </List>
+          </div>
         ) : (
           <h3>No Results to Display</h3>
         )}
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={3} sm={3}>
         <form noValidate autoComplete="off" className={classes.form}>
           <div>
             <TextField
