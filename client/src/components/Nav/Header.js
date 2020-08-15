@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2)
   },
   toolbar: {
-    backgroundColor: "#2E8B57",
+    backgroundColor: "#65C295",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
@@ -27,9 +27,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     border: 0,
     borderRadius: 3,
-    fontFamily: "Lemonada",
+    fontFamily: "'Bad Script', cursive",
     color: "white",
     padding: "0 30px"
+  },
+  h5: {
+    fontFamily: "'Roboto', sans-serif",
   }
 }));
 
@@ -51,12 +54,12 @@ export default function Nav() {
           ></IconButton>
           <Typography
             className={classes.title}
-            variant="h5"
-            fontFamily="Lemonada"
+            variant="h4"
+
             align="center"
             noWrap
           >
-            It Takes a... <h1>Village</h1>
+            <h5 className={classes.h5}>It Takes a...</h5> <h1>Village</h1>
           </Typography>
           <Button color="inherit" to="/profile" component={Link}>
             <AccountCircle />
