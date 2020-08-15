@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2)
   },
   toolbar: {
-    backgroundColor: "#65C295",
+    backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
