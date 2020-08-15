@@ -62,15 +62,15 @@ function Posts() {
                         {post.title} by {post.name}
                       </strong>
                     </a>
-                    <Button onClick={() => {}} />
+                    <Button onClick={() => { }} />
                   </ListItem>
                 );
               })}
             </Paper>
           </List>
         ) : (
-          <h3>No Results to Display</h3>
-        )}
+            <h3>No Results to Display</h3>
+          )}
       </Grid>
       <Grid item xs={12} sm={6}>
         <form noValidate autoComplete="off" className={classes.form}>
