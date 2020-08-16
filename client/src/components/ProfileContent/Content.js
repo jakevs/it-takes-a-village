@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -14,10 +15,10 @@ const useStyles = makeStyles({
     backgroundColor: "#65C295"
   },
   media: {
-    height: 140
+    height: 200
   },
   title: {
-    fontFamily: "'Playfair Display', serif",
+    fontFamily: "'Antic Slab', serif",
     color: "white",
     padding: "0 30px"
   }
@@ -45,18 +46,18 @@ export default function MediaCard() {
           </Typography>
           <Typography variant="body2" className={classes.title} component="p">
             What skills can I offer to my community during this time of crisis?
-            While many people are stuck at home, or out of work, people still
-            have many skills that they can contribute to their community. Here
-            you can add skills so other members of the community will know what
-            you can do to help!
+            While many people are stuck at home, or out of work, we still have
+            many skills that we can contribute to our community. Here you can
+            add skills so other members of the community will know what you can
+            do to help!
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" className={classes.title}>
           Add Skill
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" className={classes.title} to="/" component={Link}>
           Dashboard{" "}
         </Button>
       </CardActions>
