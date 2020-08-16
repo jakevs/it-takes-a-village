@@ -4,10 +4,20 @@ import Nav from "./components/Nav/Header";
 import Footer from "./components/Footer/Footer";
 import Post from "./pages/Postpage";
 import Profile from "./pages/Profile";
+import { Helmet } from "react-helmet";
+import FaviconSvg from "./assets/villageLogo.png";
+import FaviconPng from "./assets/villageLogo.png";
 
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <link rel="icon" type="image/svg+xml" href={FaviconSvg} />
+        <link rel="icon" type="image/png" href={FaviconPng} />
+        <title>It Takes a Village</title>
+        <meta name="author" content="It Takes a Village" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Router>
         <Nav />
         <Switch>
