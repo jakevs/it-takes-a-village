@@ -11,11 +11,11 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
     backgroundColor: "#65C295"
   },
   media: {
-    height: 200
+    justifyContent: "center",
+    height: 400
   },
   title: {
     fontFamily: "'Antic Slab', serif",
