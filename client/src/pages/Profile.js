@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MediaCard from "../components/ProfileContent/Content";
+import Menu from "../components/Menu/Menu";
+
 import API from "../utils/postAPI";
 import { Link } from "react-router-dom";
 
@@ -16,6 +18,7 @@ function Profile() {
   }
   return (
     <div className="App">
+      <Menu />
       <MediaCard />
     </div>
   );

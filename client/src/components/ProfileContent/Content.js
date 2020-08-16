@@ -10,10 +10,16 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345
+    maxWidth: 345,
+    backgroundColor: "#65C295"
   },
   media: {
     height: 140
+  },
+  title: {
+    fontFamily: "'Playfair Display', serif",
+    color: "white",
+    padding: "0 30px"
   }
 });
 
@@ -29,10 +35,15 @@ export default function MediaCard() {
           title="Covid Help"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography
+            gutterBottom
+            className={classes.title}
+            variant="h5"
+            component="h2"
+          >
             My Skills
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" className={classes.title} component="p">
             What skills can I offer to my community during this time of crisis?
             While many people are stuck at home, or out of work, people still
             have many skills that they can contribute to their community. Here
