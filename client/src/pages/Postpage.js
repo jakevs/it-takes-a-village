@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submitBtn: {
     marginTop: 10,
+    backgroundColor: "#2E8B57"
   },
 }));
 
