@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MediaCard from "../components/ProfileContent/Content";
 import API from "../utils/postAPI";
 import { Link } from "react-router-dom";
 
@@ -13,7 +14,11 @@ function Profile() {
       setFormObject({ ...formObject, [name]: value });
     }
   }
-  return <div className="App">test</div>;
+  return (
+    <div className="App">
+      <MediaCard />
+    </div>
+  );
 }
 
 export default Profile;
