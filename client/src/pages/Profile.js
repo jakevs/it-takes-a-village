@@ -10,7 +10,11 @@ import Menu from "../components/Menu/Menu";
 function Profile() {
   const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1
+      paddingRight: 0,
+      paddingLeft: 0,
+      paddingTop: 25,
+      display: "flex",
+      justifyContent: "center"
     },
     paper: {
       padding: theme.spacing(2),
@@ -32,14 +36,14 @@ function Profile() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
+      <Grid container position="static" spacing={3}>
+        <Grid item xs={5}>
           <Paper className={classes.paper}>
             {" "}
             <Menu />
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <Paper className={classes.paper}>
             {" "}
             <MediaCard />
