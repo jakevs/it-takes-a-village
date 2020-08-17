@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFFFFF",
     backgroundColor: "#2E8B57"
   },
+  bigAvatar: {
+    size: "600 px"
+  },
   section1: {
     margin: theme.spacing(3, 2)
   },
@@ -40,7 +43,7 @@ export default function Menu() {
       <Grid justify="center" alignItems="center">
         <Avatar
           src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
-          //   className={classes.bigAvatar}
+          className={classes.bigAvatar}
         />
         <div>
           {" "}
@@ -78,7 +81,7 @@ export default function Menu() {
             <div>
               <Chip className={classes.chip} label="Landscaping" />
               <Chip className={classes.chip} label="Electronics" />
-              <Chip className={classes.chip} label="Plumning" />
+              <Chip className={classes.chip} label="Plumbing" />
               <Chip className={classes.chip} label="Coding" />
             </div>
           </div>
