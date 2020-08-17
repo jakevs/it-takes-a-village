@@ -12,7 +12,7 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    maxWidth: 360,
+    maxWidth: "sm",
     backgroundColor: theme.palette.background.paper
   },
   chip: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#2E8B57"
   },
   bigAvatar: {
-    size: "600 px"
+    imageSize: "600 px"
   },
   section1: {
     margin: theme.spacing(3, 2)
@@ -39,7 +39,7 @@ export default function Menu() {
   const classes = useStyles();
 
   return (
-    <Container justify="center" alignItems="center">
+    <Container maxWidth="sm" justify="center" alignItems="center">
       <Grid justify="center" alignItems="center">
         <Avatar
           src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
@@ -47,7 +47,7 @@ export default function Menu() {
         />
         <div>
           {" "}
-          <div style={{ marginTop: 75 }}></div>{" "}
+          <div style={{ marginTop: 100 }}></div>{" "}
         </div>
         <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
@@ -63,7 +63,7 @@ export default function Menu() {
             />
           </Grid>
           <Grid>
-            <div style={{ marginTop: 10 }}>
+            <div style={{ marginTop: 50 }}>
               <TextField
                 id="filled-multiline-static"
                 label="About Me"
