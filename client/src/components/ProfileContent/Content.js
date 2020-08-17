@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#65C295"
+    backgroundColor: "#2E8B57"
   },
   media: {
     justifyContent: "center",
@@ -19,8 +19,7 @@ const useStyles = makeStyles({
   },
   title: {
     fontFamily: "'Antic Slab', serif",
-    color: "white",
-    padding: "0 30px"
+    color: "white"
   }
 });
 
