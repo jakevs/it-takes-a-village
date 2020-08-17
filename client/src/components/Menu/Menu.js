@@ -3,12 +3,10 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 // import Drawer from "@material-ui/core/Drawer";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import ExitToApp from "@material-ui/icons/ExitToApp";
+import Divider from "@material-ui/core/Divider";
+
 import Container from "@material-ui/core/Container";
+import TextField from "@material-ui/core/TextField";
 
 // const useStyles = makeStyles({
 //   drawer: {
@@ -26,33 +24,35 @@ export default function Menu() {
   //   const classes = useStyles();
 
   return (
-    <Container
-      justify="center"
-      alignItems="center"
-      //   open={true}
-      //   variant="permanent"
-      //   anchor="left"
-      //   className={classes.drawer}
-      //   classes={{
-      //     paper: classes.drawerPaper
-      //   }}
-    >
+    <Container justify="center" alignItems="center">
       <Grid justify="center" alignItems="center">
         <Avatar
           src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
           //   className={classes.bigAvatar}
         />
+        <Grid container spacing={1} alignItems="flex-end">
+          <Grid item>
+            <AccountCircle />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="standard-read-only-input"
+              label="Username"
+              InputProps={{
+                readOnly: true
+              }}
+            />
+          </Grid>
+          <Divider variant="middle" />
+          <TextField
+            id="filled-multiline-static"
+            label="About Me"
+            multiline
+            rows={4}
+            defaultValue="Ex. (An experienced electrician that was recently let go of work due to COVID-19.)"
+          />
+        </Grid>
       </Grid>
-      <List>
-        {["Profile", "Sign Out"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <AccountCircle /> : <ExitToApp />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </Container>
   );
 }
