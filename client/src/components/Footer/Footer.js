@@ -9,8 +9,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Project 3 Made with ❤️
+      <Link color="inherit" href="https://github.com/jakevs/it-takes-a-village">
+        It Takes a Village. Made with ❤️
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     // marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0),
-    position: "absolute",
     bottom: 0,
     width: "100%",
   },
