@@ -5,34 +5,40 @@ const UserSchema = new Schema({
   name: {
     type: String,
     trim: true,
-    required: "Name is required.",
+    required: "Name is required."
   },
   email: {
     type: String,
     trim: true,
     unique: true,
-    required: "Email is required.",
+    required: "Email is required."
   },
   zip: {
     type: String,
     trim: true,
-    required: "Zip is required.",
+    required: "Zip is required."
   },
   password: {
     type: String,
     trim: true,
-    required: "Password is required.",
+    required: "Password is required."
   },
+  skills: [
+    {
+      type: String,
+      trim: true
+    }
+  ],
   messages: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Message",
-    },
+      ref: "Message"
+    }
   ],
   createdAt: {
     type: Date,
-    default: Date.now(),
-  },
+    default: Date.now()
+  }
 });
 
 const User = mongoose.model("User", UserSchema);
