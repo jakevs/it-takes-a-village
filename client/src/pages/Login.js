@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import API from "../utils/userAPI";
+
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
@@ -13,7 +15,12 @@ import Grid from "@material-ui/core/Grid";
 import MediaCard from "../components/ProfileContent/Content";
 import Menu from "../components/Menu/Menu";
 
-function Login() {
+const Login = ({ user, setUser }) => {
+  const [error, setError] = useState(false);
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: ""
+  });
   const useStyles = makeStyles((theme) => ({
     root: {
       paddingRight: 0,
@@ -32,40 +39,71 @@ function Login() {
       justifyContent: "center"
     }
   }));
-  function Skills() {
-    // Setting our component's initial state
-    const [formObject, setFormObject] = useState({});
-
-    // Handles updating component state when the user types into the input field
-    function handleInputChange(event) {
-      const { name, value } = event.target;
-      setFormObject({ ...formObject, [name]: value });
-    }
-  }
   const classes = useStyles();
+
+  const handleSubmit = () => {
+    API.getUserByEmail({
+      ...loginInfo
+    })
+      .then((res) => {
+        if (res?.body) {
+          setUser(res.data);
+          setError(false);
+          return;
+        }
+        setError(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
+  };
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <form noValidate autoComplete="off">
-          <TextField id="standard" label="Email" defaultValue="" />
+          <TextField
+            id="standard"
+            label="Email"
+            defaultValue=""
+            onChange={(e) => {
+              setLoginInfo({ ...loginInfo, email: e.target.value });
+            }}
+          />
         </form>
         <form noValidate autoComplete="off">
-          <TextField
-            error
-            id="standard-error-helper-text"
-            label="Password"
-            defaultValue=""
-            helperText="Incorrect email or password."
-          />
+          {error ? (
+            <TextField
+              error
+              id="standard-error-helper-text"
+              label="Password"
+              defaultValue=""
+              helperText="Incorrect email or password."
+              onChange={(e) => {
+                setLoginInfo({ ...loginInfo, password: e.target.value });
+              }}
+            />
+          ) : (
+            <TextField
+              id="standard"
+              label="Password"
+              defaultValue=""
+              onChange={(e) => {
+                setLoginInfo({ ...loginInfo, password: e.target.value });
+              }}
+            />
+          )}
         </form>
       </CardContent>
       <br />
       <CardActions className={classes.action}>
-        <Button size="medium">Login</Button>
+        <Button size="medium" onClick={handleSubmit}>
+          Login
+        </Button>
       </CardActions>
     </Card>
   );
-}
+};
 
 export default Login;

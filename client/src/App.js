@@ -12,6 +12,7 @@ import FaviconPng from "./assets/villageLogo.png";
 
 function App() {
   const [user, setUser] = useState({
+    id: "",
     name: "",
     email: "",
     password: "",
@@ -20,6 +21,7 @@ function App() {
     skills: [],
     messages: []
   });
+  console.log(user);
 
   return (
     <div className="App">
