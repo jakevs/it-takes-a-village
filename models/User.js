@@ -13,6 +13,10 @@ const UserSchema = new Schema({
     unique: true,
     required: "Email is required."
   },
+  about: {
+    type: String,
+    trim: true
+  },
   zip: {
     type: String,
     trim: true,

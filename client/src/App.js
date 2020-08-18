@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav/Header";
 import Footer from "./components/Footer/Footer";
 import Post from "./pages/Postpage";
 import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+
 import { Helmet } from "react-helmet";
 import FaviconSvg from "./assets/villageLogo.png";
 import FaviconPng from "./assets/villageLogo.png";
 
 function App() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    zip: "",
+    about: "",
+    skills: [],
+    messages: []
+  });
+
   return (
     <div className="App">
       <Helmet>
@@ -21,8 +33,11 @@ function App() {
       <Router>
         <Nav />
         <Switch>
+          <Route exact path="/login">
+            <Login user={user} setUser={setUser} />
+          </Route>
           <Route exact path="/profile">
-            <Profile />
+            <Profile user={user} setUser={setUser} />
           </Route>
           <Route exact path="/">
             <Post />
