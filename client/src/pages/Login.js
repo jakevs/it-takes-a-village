@@ -6,16 +6,9 @@ import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
-
 import CardContent from "@material-ui/core/CardContent";
 
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-
-import MediaCard from "../components/ProfileContent/Content";
-import Menu from "../components/Menu/Menu";
-
-const Login = ({ user, setUser }) => {
+const Login = ({ setUser }) => {
   const [error, setError] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -41,23 +34,35 @@ const Login = ({ user, setUser }) => {
     }
   }));
   const classes = useStyles();
+  const sessionUser = sessionStorage.getItem("user");
+  console.log(sessionUser);
+
+  //   if (sessionUser.email) {
+  //     history.push("/profile");
+  //   }
 
   const handleSubmit = () => {
     API.getUserByEmail({
       ...loginInfo
     })
       .then((res) => {
-        if (res?.body) {
+        if (res?.data) {
           setUser(res.data);
           setError(false);
-          return;
+          sessionStorage.setItem("user", {
+            _id: res.data._id,
+            email: res.data.email
+          });
+        } else {
+          setError(true);
         }
-        setError(true);
-        history.push("/profile");
       })
       .catch((err) => {
         console.log(err);
         setError(true);
+      })
+      .finally(() => {
+        history.push("/profile");
       });
   };
 
