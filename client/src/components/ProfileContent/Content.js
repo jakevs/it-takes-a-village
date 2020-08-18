@@ -44,7 +44,7 @@ export default function MediaCard() {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
