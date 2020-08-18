@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  Redirect,
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
 import Nav from "./components/Nav/Header";
 import Footer from "./components/Footer/Footer";
 import Post from "./pages/Postpage";
@@ -21,7 +26,6 @@ function App() {
     skills: [],
     messages: []
   });
-  console.log(user);
 
   return (
     <div className="App">
@@ -38,6 +42,7 @@ function App() {
           <Route exact path="/login">
             <Login user={user} setUser={setUser} />
           </Route>
+          {user.email === "" && <Redirect to={"/login"} />}
           <Route exact path="/profile">
             <Profile user={user} setUser={setUser} />
           </Route>
