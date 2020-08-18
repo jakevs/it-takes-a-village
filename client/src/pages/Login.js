@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../utils/userAPI";
-
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
@@ -21,6 +21,7 @@ const Login = ({ user, setUser }) => {
     email: "",
     password: ""
   });
+  const history = useHistory();
   const useStyles = makeStyles((theme) => ({
     root: {
       paddingRight: 0,
@@ -52,6 +53,7 @@ const Login = ({ user, setUser }) => {
           return;
         }
         setError(true);
+        history.push("/profile");
       })
       .catch((err) => {
         console.log(err);
