@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Redirect,
   BrowserRouter as Router,
@@ -16,6 +16,7 @@ import FaviconSvg from "./assets/villageLogo.png";
 import FaviconPng from "./assets/villageLogo.png";
 
 function App() {
+  const [userId, setUserId] = useState(null);
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -26,6 +27,11 @@ function App() {
     skills: [],
     messages: []
   });
+  const sessionUser = sessionStorage.getItem("user");
+
+  useEffect(() => {
+    setUser({ ...user, id: sessionUser?._id, email: sessionUser?.email });
+  }, [sessionStorage]);
 
   return (
     <div className="App">
@@ -40,7 +46,11 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/login">
-            <Login user={user} setUser={setUser} />
+            {sessionUser ? (
+              <Redirect to={"/profile"} />
+            ) : (
+              <Login setUser={setUser} />
+            )}
           </Route>
           {user.email === "" && <Redirect to={"/login"} />}
           <Route exact path="/profile">
