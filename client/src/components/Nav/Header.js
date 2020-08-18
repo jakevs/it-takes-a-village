@@ -50,7 +50,10 @@ export default function Nav() {
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
             <Button size="large" color="inherit" to="/" component={Link}>
-              <img src="https://img.icons8.com/ios/50/FFFFFF/neighbour.png" />{" "}
+              <img
+                src="https://img.icons8.com/ios/50/FFFFFF/neighbour.png"
+                alt="Neighbour Logo"
+              />{" "}
             </Button>
             <IconButton
               edge="start"
