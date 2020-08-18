@@ -1,58 +1,92 @@
-import React, { useStyles } from "react";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-// import Drawer from "@material-ui/core/Drawer";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import ExitToApp from "@material-ui/icons/ExitToApp";
+import Divider from "@material-ui/core/Divider";
+import Chip from "@material-ui/core/Chip";
+import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import TextField from "@material-ui/core/TextField";
 
-// const useStyles = makeStyles({
-//   drawer: {
-//     maxWidth: 345
-//   },
-//   //   bigAvatar: {
-//   //     img: ""
-//   //   },
-//   drawerPaper: {
-//     height: 140
-//   }
-// });
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    maxWidth: "sm",
+    backgroundColor: theme.palette.background.paper
+  },
+  chip: {
+    margin: theme.spacing(0.5),
+    color: "#FFFFFF",
+    backgroundColor: "#2E8B57"
+  },
+  bigAvatar: {
+    imageSize: "600 px"
+  },
+  section1: {
+    margin: theme.spacing(3, 2)
+  },
+  section2: {
+    margin: theme.spacing(2),
+    marginTop: 100
+  },
+  section3: {
+    margin: theme.spacing(3, 1, 1)
+  }
+}));
 
 export default function Menu() {
-  //   const classes = useStyles();
+  const classes = useStyles();
 
   return (
-    <Container
-      justify="center"
-      alignItems="center"
-      //   open={true}
-      //   variant="permanent"
-      //   anchor="left"
-      //   className={classes.drawer}
-      //   classes={{
-      //     paper: classes.drawerPaper
-      //   }}
-    >
+    <Container maxWidth="sm" justify="center" alignItems="center">
       <Grid justify="center" alignItems="center">
         <Avatar
           src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
-          //   className={classes.bigAvatar}
+          className={classes.bigAvatar}
         />
+        <div>
+          {" "}
+          <div style={{ marginTop: 100 }}></div>{" "}
+        </div>
+        <Grid container spacing={1} alignItems="flex-end">
+          <Grid item>
+            <AccountCircle />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="standard-read-only-input"
+              label="Username"
+              InputProps={{
+                readOnly: true
+              }}
+            />
+          </Grid>
+          <Grid>
+            <div style={{ marginTop: 50 }}>
+              <TextField
+                id="filled-multiline-static"
+                label="About Me"
+                multiline
+                rows={4}
+                placeholder="Ex. (An experienced electrician that was recently let go of work due to COVID-19.)"
+              />
+            </div>
+          </Grid>
+          <Divider variant="middle" />
+          <div className={classes.section2}>
+            <Typography gutterBottom variant="body1">
+              SKILLS
+            </Typography>
+            <div>
+              <Chip className={classes.chip} label="Landscaping" />
+              <Chip className={classes.chip} label="Electronics" />
+              <Chip className={classes.chip} label="Plumbing" />
+              <Chip className={classes.chip} label="Coding" />
+            </div>
+          </div>
+        </Grid>
       </Grid>
-      <List>
-        {["Profile", "Sign Out"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <AccountCircle /> : <ExitToApp />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </Container>
   );
 }

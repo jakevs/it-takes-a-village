@@ -8,20 +8,21 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   toolbar: {
     backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   title: {
     flexGrow: 1,
@@ -36,43 +37,46 @@ const useStyles = makeStyles((theme) => ({
     margin: "0",
   },
   h6: {
-    margin: "0"
-  }
+    margin: "0",
+  },
 }));
 
 export default function Nav() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar className={classes.toolbar}>
-          <Button size="large" color="inherit" to="/" component={Link}>
-            <img src="https://img.icons8.com/ios/50/FFFFFF/neighbour.png" />{" "}
-          </Button>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          ></IconButton>
-          <Typography
-            className={classes.title}
-            variant="h4"
-            align="center"
-            noWrap
-          >
-            <h6 className={classes.h6}>It Takes a...</h6> <h1 className={classes.name}>Village</h1>
-          </Typography>
-          <Button color="inherit" to="/profile" component={Link}>
-            <AccountCircle />
-          </Button>
+    <Grid container>
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar className={classes.toolbar}>
+            <Button size="large" color="inherit" to="/" component={Link}>
+              <img src="https://img.icons8.com/ios/50/FFFFFF/neighbour.png" />{" "}
+            </Button>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+            ></IconButton>
+            <Typography
+              className={classes.title}
+              variant="h4"
+              align="center"
+              noWrap
+            >
+              <h6 className={classes.h6}>It Takes a...</h6>{" "}
+              <h1 className={classes.name}>Village</h1>
+            </Typography>
+            <Button color="inherit" to="/profile" component={Link}>
+              <AccountCircle />
+            </Button>
 
-          <IconButton aria-label="search" color="inherit">
-            <MoreIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    </div>
+            <IconButton aria-label="search" color="inherit">
+              <MoreIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </div>
+    </Grid>
   );
 }
