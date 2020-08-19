@@ -13,7 +13,7 @@ const Login = ({ setUser }) => {
   const [error, setError] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const history = useHistory();
   const useStyles = makeStyles((theme) => ({
@@ -23,16 +23,16 @@ const Login = ({ setUser }) => {
       paddingTop: 25,
       display: "flex",
       alignItems: "center",
-      flexDirection: "column"
+      flexDirection: "column",
     },
     paper: {
       padding: theme.spacing(2),
       textAlign: "center",
-      color: theme.palette.text.secondary
+      color: theme.palette.text.secondary,
     },
     action: {
-      justifyContent: "center"
-    }
+      justifyContent: "center",
+    },
   }));
   const classes = useStyles();
   const sessionUser = sessionStorage.getItem("user");
@@ -44,7 +44,7 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = () => {
     API.getUserByEmail({
-      ...loginInfo
+      ...loginInfo,
     })
       .then((res) => {
         if (res?.data) {
@@ -52,7 +52,7 @@ const Login = ({ setUser }) => {
           setError(false);
           sessionStorage.setItem("user", {
             _id: res.data._id,
-            email: res.data.email
+            email: res.data.email,
           });
           history.push("/profile");
         } else {
@@ -62,8 +62,7 @@ const Login = ({ setUser }) => {
       .catch((err) => {
         console.log(err);
         setError(true);
-      })
-
+      });
   };
 
   return (
