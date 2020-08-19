@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-
 import MediaCard from "../components/ProfileContent/Content";
 import Menu from "../components/Menu/Menu";
 
@@ -15,11 +12,6 @@ function Profile() {
       paddingTop: 25,
       display: "flex",
       justifyContent: "center",
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: "center",
-      color: theme.palette.text.secondary,
     },
   }));
   function Skills() {
@@ -38,10 +30,8 @@ function Profile() {
     <div className={classes.root}>
       <Grid container position="static" spacing={3}>
         <Grid item xs={5}>
-          <Paper className={classes.paper}>
-            {" "}
-            <Menu />
-          </Paper>
+          {" "}
+          <Menu />
         </Grid>
         <Grid item xs={7}>
           {" "}
