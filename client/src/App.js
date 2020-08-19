@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Post from "./pages/Postpage";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
-
+import Signup from "./pages/Signup";
 import { Helmet } from "react-helmet";
 import FaviconSvg from "./assets/villageLogo.png";
 import FaviconPng from "./assets/villageLogo.png";
@@ -49,8 +49,11 @@ function App() {
             {sessionUser ? (
               <Redirect to={"/profile"} />
             ) : (
-              <Login setUser={setUser} />
-            )}
+                <Login setUser={setUser} />
+              )}
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
           {user.email === "" && <Redirect to={"/login"} />}
           <Route exact path="/profile">
