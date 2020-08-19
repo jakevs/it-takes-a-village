@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     backgroundColor: "#2E8B57",
   },
@@ -17,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
     width: 100,
     marginRight: 10,
   },
-}));
+  aboutMe: {
+    color: "white",
+  },
+});
 
 export default function Menu() {
   const classes = useStyles();
@@ -35,10 +38,10 @@ export default function Menu() {
         <CardContent>
           <AccountCircle />
           <TextField
-            id="filled-multiline-static"
             label="About Me"
             multiline
             rows={4}
+            className={classes.aboutMe}
             placeholder="Ex. (An experienced electrician that was recently let go of work due to COVID-19.)"
           />
         </CardContent>
