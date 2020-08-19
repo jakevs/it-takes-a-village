@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import API from "../utils/userAPI";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,9 +7,9 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
-import SignUpModal from "../components/SignUpModal/Signup";
+import SignUp from "./Signup";
 
-const Login = ({ setUser }) => {
+export default function Login({ setUser }) {
   const [error, setError] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -65,51 +65,86 @@ const Login = ({ setUser }) => {
       });
   };
 
-  return (
-    <Card className={classes.root}>
-      <CardContent>
-        <form noValidate autoComplete="off">
-          <TextField
-            id="standard"
-            label="Email"
-            defaultValue=""
-            onChange={(e) => {
-              setLoginInfo({ ...loginInfo, email: e.target.value });
-            }}
-          />
-        </form>
-        <form noValidate autoComplete="off">
-          {error ? (
-            <TextField
-              error
-              id="standard-error-helper-text"
-              label="Password"
-              defaultValue=""
-              helperText="Incorrect email or password."
-              onChange={(e) => {
-                setLoginInfo({ ...loginInfo, password: e.target.value });
-              }}
-            />
-          ) : (
+  class Login extends Component {
+    state = {
+      SUOpen: false,
+      email: "",
+    };
+
+    SUOpen = () => {
+      this.setState({ SUOpen: true });
+    };
+
+    SUClose = () => {
+      this.setState({ SUOpen: false });
+    };
+
+    changeSU = () => {
+      this.setState({
+        SUOpen: false,
+      });
+    };
+
+    saveEmail = data => {
+      this.setState({
+        email: data,
+      });
+    };
+
+    render() {
+      return (
+        <Card className={classes.root} >
+          <CardContent>
+            <form noValidate autoComplete="off">
               <TextField
                 id="standard"
-                label="Password"
+                label="Email"
                 defaultValue=""
                 onChange={(e) => {
-                  setLoginInfo({ ...loginInfo, password: e.target.value });
+                  setLoginInfo({ ...loginInfo, email: e.target.value });
                 }}
               />
-            )}
-        </form>
-      </CardContent>
-      <br />
-      <CardActions className={classes.action}>
-        <Button size="medium" onClick={handleSubmit}>
-          Login
+            </form>
+            <form noValidate autoComplete="off">
+              {error ? (
+                <TextField
+                  error
+                  id="standard-error-helper-text"
+                  label="Password"
+                  defaultValue=""
+                  helperText="Incorrect email or password."
+                  onChange={(e) => {
+                    setLoginInfo({ ...loginInfo, password: e.target.value });
+                  }}
+                />
+              ) : (
+                  <TextField
+                    id="standard"
+                    label="Password"
+                    defaultValue=""
+                    onChange={(e) => {
+                      setLoginInfo({ ...loginInfo, password: e.target.value });
+                    }}
+                  />
+                )}
+            </form>
+          </CardContent>
+          <br />
+          <CardActions className={classes.action}>
+            <Button size="medium" onClick={handleSubmit}>
+              Login
         </Button>
-      </CardActions>
-    </Card>
-  );
-};
-
-export default Login;
+            <Button SUOpen={this.SUOpen} />
+            <SignUp
+              SUOpen={this.state.SUOpen}
+              changeSU={this.changeSU}
+              email={this.state.email}
+              SUClose={this.SUClose}
+              saveEmail={this.saveEmail}
+            />
+          </CardActions>
+        </Card >
+      );
+    }
+  }
+}
