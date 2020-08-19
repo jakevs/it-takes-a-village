@@ -45,16 +45,13 @@ export default function Menu() {
           src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
           className={classes.bigAvatar}
         />
-        <div>
-          {" "}
-          <div style={{ marginTop: 100 }}></div>{" "}
-        </div>
+
         <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
             <AccountCircle />
           </Grid>
           <Grid>
-            <div style={{ marginTop: 50 }}>
+            <div>
               <TextField
                 id="filled-multiline-static"
                 label="About Me"

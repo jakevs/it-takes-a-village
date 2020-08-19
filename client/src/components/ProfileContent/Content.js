@@ -15,6 +15,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { Link } from "react-router-dom";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles({
   root: {
@@ -28,6 +29,11 @@ const useStyles = makeStyles({
   title: {
     fontFamily: "'Antic Slab', serif",
     color: "white",
+    textAlign: "center",
+  },
+  chip: {
+    color: "#FFFFFF",
+    backgroundColor: "#2E8B57",
   },
 });
 
@@ -102,6 +108,12 @@ export default function MediaCard() {
               </Button>
             </DialogActions>
           </Dialog>
+          <div>
+            <Chip className={classes.chip} label="Landscaping" />
+            <Chip className={classes.chip} label="Electronics" />
+            <Chip className={classes.chip} label="Plumbing" />
+            <Chip className={classes.chip} label="Coding" />
+          </div>
         </CardActions>
       </Card>
     </Container>
