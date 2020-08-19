@@ -109,7 +109,7 @@ function Posts() {
                         {post.title} : {post.name}
                       </strong>
                     </Link>
-                    <Button onClick={() => {}} />
+                    <Button onClick={() => { }} />
                   </ListItem>
                   <hr />
                   <Typography className={classes.postContent}>
@@ -120,8 +120,8 @@ function Posts() {
             })}
           </div>
         ) : (
-          <h3>No Results to Display</h3>
-        )}
+            <h3>No Results to Display</h3>
+          )}
       </Grid>
       <Grid item xs={3} sm={3}>
         <form noValidate autoComplete="off" className={classes.form}>
