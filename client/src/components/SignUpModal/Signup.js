@@ -36,10 +36,6 @@ class SUModal extends React.Component {
         helper: "",
     };
 
-    validEmail = input => {
-        return validator.validate(input);
-    };
-
     saveUser = event => {
         event.preventDefault();
         if (!this.validEmail(event.target.email.value)) {
