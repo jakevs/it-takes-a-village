@@ -1,144 +1,133 @@
-import React from "react";
-import Modal from "@material-ui/core/Modal";
-import Button from "@material-ui/core/Button";
-import FormControl from "@material-ui/core/FormControl";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import withStyles from "@material-ui/core/styles/withStyles";
-import Typography from "@material-ui/core/Typography";
-import { FormHelperText } from "@material-ui/core";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
-function getModalStyle() {
-    const top = 50;
-    const left = 50;
-
-    return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
-    };
-}
-
-const styles = theme => ({
+const useStyles = makeStyles((theme) => ({
     paper: {
-        position: "absolute",
-        width: theme.spacing.unit * 50,
-        backgroundColor: "#2E8B57",
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4,
-        outline: "none",
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
-});
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing(3),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+        backgroundColor: "#2E8B57",
+        "&:hover": {
+            backgroundColor: "#349E63",
+        },
+    },
+}));
 
-class SUModal extends React.Component {
-    state = {
-        error: false,
-        helper: "",
-    };
+export default function Signup() {
+    const classes = useStyles();
 
-    saveUser = event => {
-        event.preventDefault();
-        if (!this.validEmail(event.target.email.value)) {
-            console.log("Invalid Email!");
-            return;
-        } else if (this.validEmail(event.target.email.value)) {
-            let data = {
-                email: event.target.email.value.toLowerCase(),
-                password: event.target.password.value,
-                name: event.target.name.value,
-                zip: event.target.zipcode.value,
-            };
-
-            fetch("/api/users", {
-                method: "POST",
-                mode: "cors",
-                cache: "no-cache",
-                credentials: "same-origin",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                redirect: "follow",
-                referrer: "no-referrer",
-                body: JSON.stringify(data),
-            })
-                .then(response => {
-                    if (response.status === 401) {
-                        this.setState({
-                            error: true,
-                            helper: "A user with this email already exists!",
-                        });
-                    } else {
-                        this.props.saveEmail(data.email);
-                        this.props.changeSISU();
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        } else {
-            console.log("ERROR!");
-        }
-    };
-
-    render() {
-        const { classes } = this.props;
-
-        return (
-            <Modal
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                open={this.props.SUOpen}
-                onClose={this.props.SUClose}
-            >
-                <div style={getModalStyle()} className={classes.paper}>
-                    <Typography component="h1" variant="h5" align="center">
-                        Create an account with It Takes a Village
-          </Typography>
-                    <form className={classes.form} onSubmit={this.saveUser}>
-                        <FormControl margin="normal" required fullWidth>
-                            <InputLabel htmlFor="email">Email Address</InputLabel>
-                            <Input
-                                id="email"
-                                name="email"
-                                autoComplete="email"
-                                error={this.state.error}
+    return (
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Sign up
+        </Typography>
+                <form className={classes.form} noValidate>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                autoComplete="fname"
+                                name="firstName"
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="firstName"
+                                label="First Name"
                                 autoFocus
                             />
-                            <FormHelperText error={this.state.error}>
-                                {this.state.helper}
-                            </FormHelperText>
-                        </FormControl>
-                        <FormControl margin="normal" required fullWidth>
-                            <InputLabel htmlFor="password">Password</InputLabel>
-                            <Input
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="lastName"
+                                label="Last Name"
+                                name="lastName"
+                                autoComplete="lname"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
                                 name="password"
+                                label="Password"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
                             />
-                        </FormControl>
-                        <FormControl margin="normal" required fullWidth>
-                            <InputLabel htmlFor="name">Name</InputLabel>
-                            <Input name="name" id="name" autoComplete="name" />
-                        </FormControl>
-                        <FormControl margin="normal" required fullWidth>
-                            <InputLabel htmlFor="zipcode">Zipcode</InputLabel>
-                            <Input name="zipcode" id="zipcode" autoComplete="zipcode" />
-                        </FormControl>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                        >
-                            Create account
-            </Button>
-                    </form>
-                </div>
-            </Modal>
-        );
-    }
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                autoComplete="zip"
+                                name="zipcode"
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="zipcode"
+                                label="Zip-Code"
+                            />
+                        </Grid>
+                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                        Sign Up
+          </Button>
+                    <Grid container justify="flex-end">
+                        <Grid item>
+                            <Link href="./Login.js" variant="body2">
+                                Already have an account? Log in
+              </Link>
+                        </Grid>
+                    </Grid>
+                </form>
+            </div>
+        </Container>
+    );
 }
-
-export default withStyles(styles)(SUModal);
