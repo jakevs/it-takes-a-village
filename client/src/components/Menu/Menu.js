@@ -3,9 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
-import Divider from "@material-ui/core/Divider";
-import Chip from "@material-ui/core/Chip";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 
@@ -15,11 +12,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "sm",
     backgroundColor: theme.palette.background.paper,
   },
-  chip: {
-    margin: theme.spacing(0.5),
-    color: "#FFFFFF",
-    backgroundColor: "#2E8B57",
-  },
+
   bigAvatar: {
     imageSize: "600 px",
   },
@@ -45,7 +38,6 @@ export default function Menu() {
           src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg"
           className={classes.bigAvatar}
         />
-
         <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
             <AccountCircle />
