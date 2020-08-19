@@ -14,21 +14,26 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { Link } from "react-router-dom";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#2E8B57"
+    backgroundColor: "#2E8B57",
   },
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9,
-    marginTop: "30"
+    marginTop: "30",
   },
   title: {
     fontFamily: "'Antic Slab', serif",
-    color: "white"
-  }
+    color: "white",
+    textAlign: "center",
+  },
+  chip: {
+    color: "#FFFFFF",
+    backgroundColor: "#2E8B57",
+  },
 });
 
 export default function MediaCard() {
@@ -47,11 +52,6 @@ export default function MediaCard() {
     <Container maxWidth="md">
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="https://www.impact.upenn.edu/wp-content/uploads/2020/04/covid-graphic_640x400_acf_cropped.png"
-            title="Covid Help"
-          />
           <CardContent>
             <Typography
               gutterBottom
@@ -69,6 +69,11 @@ export default function MediaCard() {
               know what you can do to help!
             </Typography>
           </CardContent>
+          <CardMedia
+            className={classes.media}
+            image="https://www.impact.upenn.edu/wp-content/uploads/2020/04/covid-graphic_640x400_acf_cropped.png"
+            title="Covid Help"
+          />
         </CardActionArea>
         <CardActions>
           <Button className={classes.title} onClick={handleClickOpen}>
@@ -102,14 +107,12 @@ export default function MediaCard() {
               </Button>
             </DialogActions>
           </Dialog>
-          <Button
-            size="small"
-            className={classes.title}
-            to="/"
-            component={Link}
-          >
-            Dashboard{" "}
-          </Button>
+          <div>
+            <Chip className={classes.chip} label="Landscaping" />
+            <Chip className={classes.chip} label="Electronics" />
+            <Chip className={classes.chip} label="Plumbing" />
+            <Chip className={classes.chip} label="Coding" />
+          </div>
         </CardActions>
       </Card>
     </Container>
