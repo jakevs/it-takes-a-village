@@ -18,17 +18,17 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#2E8B57"
+    backgroundColor: "#2E8B57",
   },
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9,
-    marginTop: "30"
+    marginTop: "30",
   },
   title: {
     fontFamily: "'Antic Slab', serif",
-    color: "white"
-  }
+    color: "white",
+  },
 });
 
 export default function MediaCard() {
@@ -47,11 +47,6 @@ export default function MediaCard() {
     <Container maxWidth="md">
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image="https://www.impact.upenn.edu/wp-content/uploads/2020/04/covid-graphic_640x400_acf_cropped.png"
-            title="Covid Help"
-          />
           <CardContent>
             <Typography
               gutterBottom
@@ -69,6 +64,11 @@ export default function MediaCard() {
               know what you can do to help!
             </Typography>
           </CardContent>
+          <CardMedia
+            className={classes.media}
+            image="https://www.impact.upenn.edu/wp-content/uploads/2020/04/covid-graphic_640x400_acf_cropped.png"
+            title="Covid Help"
+          />
         </CardActionArea>
         <CardActions>
           <Button className={classes.title} onClick={handleClickOpen}>
@@ -102,14 +102,6 @@ export default function MediaCard() {
               </Button>
             </DialogActions>
           </Dialog>
-          <Button
-            size="small"
-            className={classes.title}
-            to="/"
-            component={Link}
-          >
-            Dashboard{" "}
-          </Button>
         </CardActions>
       </Card>
     </Container>

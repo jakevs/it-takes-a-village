@@ -13,26 +13,26 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     maxWidth: "sm",
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   chip: {
     margin: theme.spacing(0.5),
     color: "#FFFFFF",
-    backgroundColor: "#2E8B57"
+    backgroundColor: "#2E8B57",
   },
   bigAvatar: {
-    imageSize: "600 px"
+    imageSize: "600 px",
   },
   section1: {
-    margin: theme.spacing(3, 2)
+    margin: theme.spacing(3, 2),
   },
   section2: {
     margin: theme.spacing(2),
-    marginTop: 100
+    marginTop: 100,
   },
   section3: {
-    margin: theme.spacing(3, 1, 1)
-  }
+    margin: theme.spacing(3, 1, 1),
+  },
 }));
 
 export default function Menu() {
@@ -53,15 +53,6 @@ export default function Menu() {
           <Grid item>
             <AccountCircle />
           </Grid>
-          <Grid item>
-            <TextField
-              id="standard-read-only-input"
-              label="Username"
-              InputProps={{
-                readOnly: true
-              }}
-            />
-          </Grid>
           <Grid>
             <div style={{ marginTop: 50 }}>
               <TextField
@@ -73,8 +64,7 @@ export default function Menu() {
               />
             </div>
           </Grid>
-          <Divider variant="middle" />
-          <div className={classes.section2}>
+          {/*  <div className={classes.section2}>
             <Typography gutterBottom variant="body1">
               SKILLS
             </Typography>
@@ -84,7 +74,7 @@ export default function Menu() {
               <Chip className={classes.chip} label="Plumbing" />
               <Chip className={classes.chip} label="Coding" />
             </div>
-          </div>
+          </div> */}
         </Grid>
       </Grid>
     </Container>
