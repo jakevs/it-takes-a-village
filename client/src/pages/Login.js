@@ -53,6 +53,7 @@ const Login = ({ setUser }) => {
             _id: res.data._id,
             email: res.data.email
           });
+          history.push("/profile");
         } else {
           setError(true);
         }
@@ -61,9 +62,7 @@ const Login = ({ setUser }) => {
         console.log(err);
         setError(true);
       })
-      .finally(() => {
-        history.push("/profile");
-      });
+
   };
 
   return (
@@ -92,15 +91,15 @@ const Login = ({ setUser }) => {
               }}
             />
           ) : (
-            <TextField
-              id="standard"
-              label="Password"
-              defaultValue=""
-              onChange={(e) => {
-                setLoginInfo({ ...loginInfo, password: e.target.value });
-              }}
-            />
-          )}
+              <TextField
+                id="standard"
+                label="Password"
+                defaultValue=""
+                onChange={(e) => {
+                  setLoginInfo({ ...loginInfo, password: e.target.value });
+                }}
+              />
+            )}
         </form>
       </CardContent>
       <br />
