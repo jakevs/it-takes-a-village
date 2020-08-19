@@ -61,8 +61,7 @@ const Login = ({ setUser }) => {
       .catch((err) => {
         console.log(err);
         setError(true);
-      })
-      .finally(() => {});
+      });
   };
 
   return (
