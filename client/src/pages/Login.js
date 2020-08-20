@@ -98,6 +98,7 @@ const Login = ({ setUser }) => {
                 id="standard"
                 label="Password"
                 defaultValue=""
+                type="password"
                 onChange={(e) => {
                   setLoginInfo({ ...loginInfo, password: e.target.value });
                 }}
