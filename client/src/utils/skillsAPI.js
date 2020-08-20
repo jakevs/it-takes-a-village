@@ -7,7 +7,7 @@ export default {
   addSkill: function (skillData) {
     return axios.post("/api/skill", skillData);
   },
-  deleteSkill: function () {
+  /* deleteSkill: function () {
     return axios.delete("api/skill" + id);
-  },
+  }, */
 };

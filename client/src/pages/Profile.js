@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import MediaCard from "../components/ProfileContent/Content";
 import Menu from "../components/Menu/Menu";
-import API from "../utils/skillsAPI";
+import API from "../utils/";
 
 function Profile() {
   const useStyles = makeStyles((theme) => ({
@@ -15,16 +15,7 @@ function Profile() {
       justifyContent: "center",
     },
   }));
-  function Skills() {
-    // Setting our component's initial state
-    const [formObject, setFormObject] = useState({});
 
-    // Handles updating component state when the user types into the input field
-    function handleInputChange(event) {
-      const { name, value } = event.target;
-      setFormObject({ ...formObject, [name]: value });
-    }
-  }
   const classes = useStyles();
 
   return (
