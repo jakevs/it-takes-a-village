@@ -70,7 +70,7 @@ export default function MediaCard() {
     e.preventDefault();
 
     API.addSkill({
-      name: formObject.name,
+      skillName: formObject.skillName,
     })
       .then((res) => loadSkills())
       .then(
@@ -127,10 +127,10 @@ export default function MediaCard() {
                 margin="dense"
                 id="name"
                 label="Skill"
-                type="email"
                 fullWidth
                 onChange={handleInputChange}
                 inputRef={skillInput}
+                name="skillName"
               />
             </DialogContent>
             <DialogActions>
@@ -142,11 +142,16 @@ export default function MediaCard() {
               </Button>
             </DialogActions>
           </Dialog>
-          <div>
-            <Chip className={classes.chip} label="Landscaping" />
-            <Chip className={classes.chip} label="Electronics" />
-            <Chip className={classes.chip} label="Plumbing" />
-            <Chip className={classes.chip} label="Coding" />
+          <div className={classes.flexdiv}>
+            {skills.length ? (
+              <div className={classes.flexdiv}>
+                {skills.map((skill) => {
+                  return <Chip label={skill.skillName} />;
+                })}
+              </div>
+            ) : (
+              <h3>No Skill added yet</h3>
+            )}
           </div>
         </CardActions>
       </Card>

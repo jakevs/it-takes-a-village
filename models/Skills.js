@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SkillSchema = new Schema({
-  name: {
+  skillName: {
     type: String,
     required: "Cannot add empty skill",
   },
