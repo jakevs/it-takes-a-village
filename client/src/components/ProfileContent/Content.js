@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -15,6 +15,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Chip from "@material-ui/core/Chip";
+import API from "../../utils/skillsAPI";
 
 const useStyles = makeStyles({
   root: {
@@ -40,6 +41,17 @@ export default function MediaCard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
+  // Setting our component's initial state
+  const [skills, setSkills] = useState([]);
+  const [formObject, setFormObject] = useState({});
+  let skillInput = useRef(null);
+
+  // Handles updating component state when the user types into the input field
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -47,6 +59,27 @@ export default function MediaCard() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  function loadSkills() {
+    API.getSkills()
+      .then((res) => setSkills(res.data))
+      .catch((err) => console.log(err));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    API.addSkill({
+      name: formObject.name,
+    })
+      .then((res) => loadSkills())
+      .then(
+        setTimeout(() => {
+          skillInput.current.value = "";
+        }, 100)
+      )
+      .catch((err) => console.log(err));
+  }
 
   return (
     <Container maxWidth="md">
@@ -96,13 +129,15 @@ export default function MediaCard() {
                 label="Skill"
                 type="email"
                 fullWidth
+                onChange={handleInputChange}
+                inputRef={skillInput}
               />
             </DialogContent>
             <DialogActions>
               <Button onClick={handleClose} color="primary">
                 Cancel
               </Button>
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={(handleClose, handleSubmit)} color="primary">
                 Add{" "}
               </Button>
             </DialogActions>
