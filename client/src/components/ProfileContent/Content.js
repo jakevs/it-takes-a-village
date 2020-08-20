@@ -48,6 +48,10 @@ export default function MediaCard() {
     setOpen(false);
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <Container maxWidth="md">
       <Card className={classes.root}>
@@ -102,7 +106,7 @@ export default function MediaCard() {
               <Button onClick={handleClose} color="primary">
                 Cancel
               </Button>
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={(handleClose, handleSubmit)} color="primary">
                 Add{" "}
               </Button>
             </DialogActions>
