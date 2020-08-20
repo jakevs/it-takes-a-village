@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import API from "../utils/userAPI";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Signup() {
+    const history = useHistory();
     const classes = useStyles();
 
     const [user, setUser] = useState([]);
@@ -64,6 +66,7 @@ export default function Signup() {
                     zipInput.current.value = "";
                 }, 100)
             )
+            .then(history.push("./Profile"))
             .then(console.log("user added"))
             .catch((err) => console.log(err));
     }
