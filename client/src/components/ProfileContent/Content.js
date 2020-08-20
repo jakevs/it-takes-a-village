@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -46,6 +46,9 @@ export default function MediaCard() {
   const [formObject, setFormObject] = useState({});
   let skillInput = useRef(null);
 
+  useEffect(() => {
+    loadSkills();
+  }, []);
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -143,11 +146,9 @@ export default function MediaCard() {
             </DialogActions>
           </Dialog>
           <div className={classes.flexdiv}>
-            <div className={classes.flexdiv}>
-              {skills.map((skill) => {
-                return <Chip label={skill.skillName} />;
-              })}
-            </div>
+            {skills.map((skill) => {
+              return <Chip label={skill.skillName} />;
+            })}
           </div>
         </CardActions>
       </Card>
