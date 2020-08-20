@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import MediaCard from "../components/ProfileContent/Content";
 import Menu from "../components/Menu/Menu";
-import API from "../utils/";
 
 function Profile() {
   const useStyles = makeStyles((theme) => ({

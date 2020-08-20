@@ -70,7 +70,7 @@ export default function MediaCard() {
     e.preventDefault();
 
     API.addSkill({
-      name: formObject.name,
+      skillName: formObject.skillName,
     })
       .then((res) => loadSkills())
       .then(
@@ -127,10 +127,10 @@ export default function MediaCard() {
                 margin="dense"
                 id="name"
                 label="Skill"
-                type="email"
                 fullWidth
                 onChange={handleInputChange}
                 inputRef={skillInput}
+                name="skillName"
               />
             </DialogContent>
             <DialogActions>
