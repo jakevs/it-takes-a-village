@@ -5,24 +5,24 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MoreIcon from "@material-ui/icons/MoreVert";
+import BackspaceIcon from "@material-ui/icons/Backspace";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   toolbar: {
     backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   title: {
     flexGrow: 1,
@@ -30,15 +30,15 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     fontFamily: "'Playfair Display', serif",
     color: "white",
-    padding: "0 30px",
+    padding: "0 30px"
   },
   name: {
     fontSize: "80px",
-    margin: "0",
+    margin: "0"
   },
   h6: {
-    margin: "0",
-  },
+    margin: "0"
+  }
 }));
 
 export default function Nav() {
@@ -55,12 +55,7 @@ export default function Nav() {
                 alt="Neighbour Logo"
               />{" "}
             </Button>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            ></IconButton>
+            <IconButton></IconButton>
             <Typography
               className={classes.title}
               variant="h4"
@@ -74,8 +69,8 @@ export default function Nav() {
               <AccountCircle />
             </Button>
 
-            <IconButton aria-label="search" color="inherit">
-              <MoreIcon />
+            <IconButton color="inherit" to="/signup" component={Link}>
+              <BackspaceIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
