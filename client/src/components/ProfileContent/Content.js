@@ -142,11 +142,16 @@ export default function MediaCard() {
               </Button>
             </DialogActions>
           </Dialog>
-          <div>
-            <Chip className={classes.chip} label="Landscaping" />
-            <Chip className={classes.chip} label="Electronics" />
-            <Chip className={classes.chip} label="Plumbing" />
-            <Chip className={classes.chip} label="Coding" />
+          <div className={classes.flexdiv}>
+            {skills.length ? (
+              <div className={classes.flexdiv}>
+                {skills.map((skill) => {
+                  return <Chip label={skill.skillName} />;
+                })}
+              </div>
+            ) : (
+              <h3>No Skill added yet</h3>
+            )}
           </div>
         </CardActions>
       </Card>
