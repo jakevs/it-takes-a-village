@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -44,6 +45,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Nav() {
   const classes = useStyles();
 
+  const history = useHistory();
+
+  const logout = () => {
+    sessionStorage.clear();
+    history.push("/login");
+  };
+
   return (
     <Grid container>
       <div className={classes.root}>
@@ -69,7 +77,7 @@ export default function Nav() {
               <AccountCircle />
             </Button>
 
-            <IconButton color="inherit" to="/signup" component={Link}>
+            <IconButton color="inherit" onClick={logout}>
               <BackspaceIcon />
             </IconButton>
           </Toolbar>
