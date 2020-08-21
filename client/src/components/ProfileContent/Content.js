@@ -147,7 +147,7 @@ export default function MediaCard() {
           </Dialog>
           <div className={classes.flexdiv}>
             {skills.map((skill) => {
-              return <Chip label={skill.skillName} />;
+              return <Chip label={skill.skillName} className={classes.chip} />;
             })}
           </div>
         </CardActions>
