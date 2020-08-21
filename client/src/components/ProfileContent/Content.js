@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -44,7 +44,6 @@ export default function MediaCard() {
   // Setting our component's initial state
   const [skills, setSkills] = useState([]);
   const [formObject, setFormObject] = useState({});
-  let skillInput = useRef(null);
 
   useEffect(() => {
     loadSkills();
@@ -76,11 +75,7 @@ export default function MediaCard() {
       skillName: formObject.skillName,
     })
       .then((res) => loadSkills())
-      .then(
-        setTimeout(() => {
-          skillInput.current.value = "";
-        }, 100)
-      )
+      .then(handleClose())
       .catch((err) => console.log(err));
   }
 
@@ -132,7 +127,6 @@ export default function MediaCard() {
                 label="Skill"
                 fullWidth
                 onChange={handleInputChange}
-                inputRef={skillInput}
                 name="skillName"
               />
             </DialogContent>
