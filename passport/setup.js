@@ -1,37 +1,8 @@
 const passport = require("passport");
-const db = require("../models");
+const User = require("../models/User");
 const LocalStrategy = require("passport-local").Strategy;
 
-// Serialize is used to keep user logged in from page to page.
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-passport.deserializeUser((id, done) => {
-  db.User.findById(id, (err, user) => {
-    done(err, user);
-  });
-});
-
 //Local Strategy
-passport.use(
-  new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    User.findOne({
-      where: {
-        email: email,
-      },
-    }).then((dbUser) => {
-      if (!dbUser) {
-        return done(null, false, {
-          message: "Provide a valid username.",
-        });
-      } else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password.",
-        });
-      }
-      return done(null, dbUser);
-    });
-  })
-);
+passport.use(new LocalStrategy(User.authenticate()));
 
 module.exports = passport;
