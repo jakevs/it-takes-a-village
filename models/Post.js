@@ -6,11 +6,6 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  /* name: {
-    type: String,
-    trim: true,
-    required: "Username is required.",
-  }, */
   title: {
     type: String,
     required: "Post title is required.",
@@ -23,11 +18,6 @@ const PostSchema = new Schema({
     type: String,
     trim: true,
     required: "Location is required.",
-  }, */
-  /* category: {
-    type: String,
-    trim: true,
-    default: "General",
   }, */
   createdAt: {
     type: Date,
