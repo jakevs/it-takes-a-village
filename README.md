@@ -1,11 +1,11 @@
 # It Takes a Village
 
-[![GitHub license](https://img.shields.io/badge/ViLlAge-lightblue.svg)](https://github.com/jakevs/it-takes-a-village)
+[![GitHub license](https://img.shields.io/badge/V-lightblue.svg)(https://img.shields.io/badge/I-green.svg)(https://img.shields.io/badge/L-red.svg)(https://img.shields.io/badge/L-purple.svg)(https://img.shields.io/badge/A-yellow.svg)(https://img.shields.io/badge/G-brown.svg)(https://img.shields.io/badge/E-pink.svg)](https://github.com/jakevs/it-takes-a-village)
 
 ## Description
 
 This MERN application is designed for users to reach out to members of their local community, and utilize their skills to help out each other during the Covid-19 pandemic. Users will be able to create a username, and login to access a dashboard, which they can then post to. Users will be able to see other users posts and information.
-This application was built using MongoDB, Express, React, Node, Session Storage, Passport and Material UI.
+This application was built using MongoDB, Express, React, Node, Passport and Material UI.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This application was built using MongoDB, Express, React, Node, Session Storage,
 To inspect the live application, follow the link:
 
 ```
-[]
+https://stormy-thicket-60781.herokuapp.com/
 ```
 
 ## Contributing
