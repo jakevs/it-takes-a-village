@@ -42,11 +42,6 @@ export default function Signup() {
 
     const [user, setUser] = useState([]);
     const [formObject, setFormObject] = useState({});
-    let firstInput = useRef(null);
-    let lastInput = useRef(null);
-    let emailInput = useRef(null);
-    let passwordInput = useRef(null);
-    let zipInput = useRef(null);
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -57,17 +52,8 @@ export default function Signup() {
             password: formObject.password,
             zip: formObject.zip,
         })
-            .then(
-                setTimeout(() => {
-                    firstInput.current.value = "";
-                    lastInput.current.value = "";
-                    emailInput.current.value = "";
-                    passwordInput.current.value = "";
-                    zipInput.current.value = "";
-                }, 100)
-            )
-            .then(history.push("./Profile"))
             .then(console.log("user added"))
+            .then(history.push("./Profile"))
             .catch((err) => console.log(err));
     }
 
@@ -100,7 +86,6 @@ export default function Signup() {
                                 label="First Name"
                                 autoFocus
                                 onChange={handleInputChange}
-                                inputRef={firstInput}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -113,7 +98,6 @@ export default function Signup() {
                                 name="lastName"
                                 autoComplete="lname"
                                 onChange={handleInputChange}
-                                inputRef={lastInput}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -126,7 +110,6 @@ export default function Signup() {
                                 name="email"
                                 autoComplete="email"
                                 onChange={handleInputChange}
-                                inputRef={emailInput}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -140,7 +123,6 @@ export default function Signup() {
                                 id="password"
                                 autoComplete="current-password"
                                 onChange={handleInputChange}
-                                inputRef={passwordInput}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -153,7 +135,6 @@ export default function Signup() {
                                 id="zip"
                                 label="Zip-Code"
                                 onChange={handleInputChange}
-                                inputRef={zipInput}
                             />
                         </Grid>
                     </Grid>
