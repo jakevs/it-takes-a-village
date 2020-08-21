@@ -47,7 +47,14 @@ export default function Menu() {
     setFormObject({ ...formObject, [name]: value });
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    API.updateUser({
+      about: formObject.about,
+    }).then((res) => {
+      console.log(about);
+      loadAbout();
+    });
+  };
 
   return (
     <Container maxWidth="md">
@@ -66,11 +73,14 @@ export default function Menu() {
             multiline
             rows={4}
             className={classes.aboutMe}
+            name="about"
             placeholder="Ex. (An experienced electrician that was recently let go of work due to COVID-19.)"
             onChange={handleInputChange}
           />
+          <Button onClick={handleSubmit} className={classes.button}>
+            Update
+          </Button>
         </CardContent>
-        <Button onClick={handleSubmit} className={classes.button} />
       </Card>
     </Container>
   );
