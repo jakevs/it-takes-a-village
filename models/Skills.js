@@ -6,6 +6,12 @@ const SkillSchema = new Schema({
     type: String,
     required: "Cannot add empty skill",
   },
+  user: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 const Skill = mongoose.model("Skill", SkillSchema);

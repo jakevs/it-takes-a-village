@@ -32,12 +32,8 @@ const UserSchema = new Schema({
     trim: true,
     required: "Password is required.",
   },
-  messages: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Message",
-    },
-  ],
+  posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+  skill: [{ type: Schema.Types.ObjectId, ref: "Skill" }],
   createdAt: {
     type: Date,
     default: Date.now(),

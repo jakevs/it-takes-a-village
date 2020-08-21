@@ -2,16 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-  /*  userId: {
-    type: String,
-    trim: true,
-    required: "ID is required.",
-  }, */
-  /* name: {
-    type: String,
-    trim: true,
-    required: "Username is required.",
-  }, */
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   title: {
     type: String,
     required: "Post title is required.",
@@ -24,11 +18,6 @@ const PostSchema = new Schema({
     type: String,
     trim: true,
     required: "Location is required.",
-  }, */
-  /* category: {
-    type: String,
-    trim: true,
-    default: "General",
   }, */
   createdAt: {
     type: Date,
