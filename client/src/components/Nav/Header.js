@@ -49,7 +49,7 @@ export default function Nav() {
 
   const logout = () => {
     sessionStorage.clear();
-    history.push("/login");
+    window.location.reload();
   };
 
   return (

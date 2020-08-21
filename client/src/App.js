@@ -30,7 +30,7 @@ function App() {
   const sessionUser = sessionStorage.getItem("user");
 
   useEffect(() => {
-    setUser({ ...user, id: sessionUser?._id, email: sessionUser?.email });
+    setUser({ ...user, id: sessionUser?._id, email: sessionUser?.email ?? "" });
   }, [sessionStorage]);
 
   return (
@@ -49,8 +49,8 @@ function App() {
             {sessionUser ? (
               <Redirect to={"/profile"} />
             ) : (
-                <Login setUser={setUser} />
-              )}
+              <Login setUser={setUser} />
+            )}
           </Route>
           <Route exact path="/signup">
             <Signup />
