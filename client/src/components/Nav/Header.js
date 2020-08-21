@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -13,17 +12,17 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   toolbar: {
     backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   title: {
     flexGrow: 1,
@@ -31,21 +30,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     fontFamily: "'Playfair Display', serif",
     color: "white",
-    padding: "0 30px"
+    padding: "0 30px",
   },
   name: {
     fontSize: "80px",
-    margin: "0"
+    margin: "0",
   },
   h6: {
-    margin: "0"
-  }
+    margin: "0",
+  },
 }));
 
 export default function Nav() {
   const classes = useStyles();
-
-  const history = useHistory();
 
   const logout = () => {
     sessionStorage.clear();

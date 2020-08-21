@@ -3,7 +3,7 @@ import {
   Redirect,
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
 } from "react-router-dom";
 import Nav from "./components/Nav/Header";
 import Footer from "./components/Footer/Footer";
@@ -16,7 +16,6 @@ import FaviconSvg from "./assets/villageLogo.png";
 import FaviconPng from "./assets/villageLogo.png";
 
 function App() {
-  const [userId, setUserId] = useState(null);
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -25,7 +24,7 @@ function App() {
     zip: "",
     about: "",
     skills: [],
-    messages: []
+    messages: [],
   });
   const sessionUser = sessionStorage.getItem("user");
 
