@@ -88,6 +88,7 @@ const Login = ({ setUser }) => {
               id="standard-error-helper-text"
               label="Password"
               defaultValue=""
+              type="password"
               helperText="Incorrect email or password."
               onChange={(e) => {
                 setLoginInfo({ ...loginInfo, password: e.target.value });
