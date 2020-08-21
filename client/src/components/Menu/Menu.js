@@ -4,6 +4,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import API from "../../utils/userAPI";
@@ -19,6 +20,9 @@ const useStyles = makeStyles({
     marginRight: 10,
   },
   aboutMe: {
+    color: "white",
+  },
+  button: {
     color: "white",
   },
 });
@@ -43,6 +47,8 @@ export default function Menu() {
     setFormObject({ ...formObject, [name]: value });
   };
 
+  const handleSubmit = () => {};
+
   return (
     <Container maxWidth="md">
       <Card className={classes.root}>
@@ -64,6 +70,7 @@ export default function Menu() {
             onChange={handleInputChange}
           />
         </CardContent>
+        <Button onClick={handleSubmit} className={classes.button} />
       </Card>
     </Container>
   );
