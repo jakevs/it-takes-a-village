@@ -23,4 +23,7 @@ export default {
   getSkills: function (userData) {
     return axios.get("/api/user/:email/skill");
   },
+  addSkill: function (userData) {
+    return axios.post("/api/user/:email/skill");
+  },
 };
