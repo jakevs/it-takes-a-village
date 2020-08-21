@@ -12,17 +12,17 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   toolbar: {
     backgroundColor: "#2E8B57",
     paddingRight: 0,
     paddingLeft: 0,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   title: {
     flexGrow: 1,
@@ -30,19 +30,24 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     fontFamily: "'Playfair Display', serif",
     color: "white",
-    padding: "0 30px"
+    padding: "0 30px",
   },
   name: {
     fontSize: "80px",
-    margin: "0"
+    margin: "0",
   },
   h6: {
-    margin: "0"
-  }
+    margin: "0",
+  },
 }));
 
 export default function Nav() {
   const classes = useStyles();
+
+  const logout = () => {
+    sessionStorage.clear();
+    window.location.reload();
+  };
 
   return (
     <Grid container>
@@ -69,7 +74,7 @@ export default function Nav() {
               <AccountCircle />
             </Button>
 
-            <IconButton color="inherit" to="/signup" component={Link}>
+            <IconButton color="inherit" onClick={logout}>
               <BackspaceIcon />
             </IconButton>
           </Toolbar>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,17 +34,17 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: "#349E63",
         },
     },
+
 }));
 
 export default function Signup() {
     const history = useHistory();
     const classes = useStyles();
 
-    const [user, setUser] = useState([]);
     const [formObject, setFormObject] = useState({});
 
     function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         API.saveUser({
             firstName: formObject.firstName,
             lastName: formObject.lastName,
@@ -55,11 +55,6 @@ export default function Signup() {
             .then(console.log("user added"))
             .then(history.push("./Profile"))
             .catch((err) => console.log(err));
-    }
-
-    function handleInputChange(e) {
-        const { name, value } = e.target;
-        setFormObject({ ...formObject, [name]: value });
     }
 
     return (
@@ -84,7 +79,6 @@ export default function Signup() {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
-                                onChange={handleInputChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -96,7 +90,6 @@ export default function Signup() {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="lname"
-                                onChange={handleInputChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -108,7 +101,6 @@ export default function Signup() {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
-                                onChange={handleInputChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -121,7 +113,6 @@ export default function Signup() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                onChange={handleInputChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -133,7 +124,6 @@ export default function Signup() {
                                 fullWidth
                                 id="zip"
                                 label="Zip-Code"
-                                onChange={handleInputChange}
                             />
                         </Grid>
                     </Grid>
