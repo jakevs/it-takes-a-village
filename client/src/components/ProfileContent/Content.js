@@ -15,8 +15,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Chip from "@material-ui/core/Chip";
-import userAPI from "../../utils/userAPI";
-import skillAPI from "../../utils/skillsAPI";
+import API from "../../utils/skillsAPI";
 
 const useStyles = makeStyles({
   root: {
@@ -64,8 +63,7 @@ export default function MediaCard() {
   };
 
   function loadSkills() {
-    userAPI
-      .getSkills()
+    API.getSkills()
       .then((res) => setSkills(res.data))
       .catch((err) => console.log(err));
   }
@@ -73,10 +71,9 @@ export default function MediaCard() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    userAPI
-      .addSkill({
-        skillName: formObject.skillName,
-      })
+    API.addSkill({
+      skillName: formObject.skillName,
+    })
       .then((res) => loadSkills())
       .then(handleClose())
       .catch((err) => console.log(err));
