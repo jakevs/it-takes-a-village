@@ -21,9 +21,13 @@ const useStyles = makeStyles({
   },
   aboutMe: {
     color: "white",
+    display: 'flex',
+    flexWrap: 'wrap',
+
   },
   button: {
     color: "white",
+    paddingTop: 10,
   },
 });
 
@@ -67,7 +71,7 @@ export default function Menu() {
           />
         </CardContent>
         <CardContent>
-          <AccountCircle />
+          {/* <AccountCircle /> */}
           <TextField
             label="About Me"
             multiline
