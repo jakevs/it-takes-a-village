@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export default {
-  // Gets the user with the given email
-  getUser: function (email) {
-    return axios.get("/api/user/" + email);
+  // Gets the user with the given id
+  getUser: function (id) {
+    return axios.get("/api/user/" + id);
   },
   getUserByEmail: function (userData) {
     return axios.put("/api/user", userData);
