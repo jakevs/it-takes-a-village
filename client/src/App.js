@@ -45,11 +45,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/login">
-            {sessionUser ? (
-              <Redirect to={"/profile"} />
-            ) : (
-              <Login setUser={setUser} />
-            )}
+            <Login setUser={setUser} />
           </Route>
           <Route exact path="/signup">
             <Signup />
