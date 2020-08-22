@@ -34,8 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Serialize is used to keep user logged in from page to page.
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+//passport.serializeUser(User.serializeUser());
+//passport.deserializeUser(User.deserializeUser());
 
 //Express Session
 app.use(
