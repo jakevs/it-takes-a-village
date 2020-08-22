@@ -1,6 +1,6 @@
 # It Takes a Village
 
-[![GitHub license](https://img.shields.io/badge/VILLAGE-green.svg/)](https://github.com/jakevs/it-takes-a-village)
+[![GitHub license](https://img.shields.io/badge/VILLAGE-green.svg)](https://github.com/jakevs/it-takes-a-village)
 
 ## Description
 
