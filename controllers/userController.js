@@ -1,28 +1,36 @@
 const db = require("../models");
 
 module.exports = {
-  findAll: async (req, res) => {
-    let allUsers = await db.User.find();
-    res.json(allUsers);
+  findAll: (req, res) => {
+    db.User.find(req.query)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
-  findByEmail: async (req, res) => {
-    foundUser = await db.User.find({ name: req.params.email });
-    res.json(foundUser);
+  findById: (req, res) => {
+    db.User.findById(req.params.id)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
-  findOne: async (req, res) => {
+  findOne: (req, res) => {
     console.log(req.body);
     db.User.findOne({ email: req.body.email, password: req.body.password })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-  getSkills: async (req, res) => {
-    let foundUser = await db.User.find({ name: req.params.email }).populate(
-      "skills"
-    );
-    res.json(foundUser);
+  create: (req, res) => {
+    db.User.create(req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
-  create: async (req, res) => {
-    let newUser = await db.User.create(req.body);
-    res.json(newUser);
+  update: (req, res) => {
+    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+  remove: (req, res) => {
+    db.User.findById({ _id: req.params.id })
+      .then((dbModel) => dbModel.remove())
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
 };
