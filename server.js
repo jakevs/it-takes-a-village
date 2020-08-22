@@ -3,10 +3,10 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 
-const passport = require("passport");
-const auth = require("./routes/auth");
-require("./passport/setup");
-const User = require("./models/User");
+//const passport = require("passport");
+//const auth = require("./routes/auth");
+//require("./passport/setup");
+//const User = require("./models/User");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -30,12 +30,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 // Serialize is used to keep user logged in from page to page.
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+//passport.serializeUser(User.serializeUser());
+//passport.deserializeUser(User.deserializeUser());
 
 //Express Session
 app.use(
@@ -49,7 +49,7 @@ app.use(
 
 //Routes
 app.use(routes);
-app.use("/api/auth", auth);
+//app.use("/api/auth", auth);
 
 //Express server start
 app.listen(PORT, function () {
