@@ -16,14 +16,8 @@ export default {
   saveUser: function (userData) {
     return axios.post("/api/user", userData);
   },
-  // Updates a user to the database
-  updateUser: function (id, userData) {
-    return axios.put("/api/user" + id, userData);
-  },
-  getSkills: function (userData) {
-    return axios.get("/api/user/:email/skill");
-  },
-  addSkill: function (userData) {
-    return axios.post("/api/user/:email/skill");
+  // Updates a user in the database
+  updateUser: function (userData) {
+    return axios.put("/api/user" + userData);
   },
 };
