@@ -6,7 +6,7 @@ const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 const auth = require("./routes/auth");
 require("./passport/setup");
-require("./models/User");
+const User = require("./models/User");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -34,8 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Serialize is used to keep user logged in from page to page.
-//passport.serializeUser(User.serializeUser());
-//passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //Express Session
 app.use(
