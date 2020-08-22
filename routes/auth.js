@@ -1,22 +1,40 @@
 const express = require("express");
 const router = express.Router();
+const User = require("../models/User");
 const passport = require("passport");
 
-router.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) {
-      return res.status(400).json({ errors: err });
-    }
-    if (!user) {
-      return res.status(400).json({ errors: "No user found." });
-    }
-    req.logIn(user, (err) => {
+//Route for signup
+router.post("/signup", (req, res) => {
+  User.register(
+    new User({ username: req.body.email }),
+    req.body.password,
+    (err, user) => {
       if (err) {
-        return res.status(400).json({ errors: err });
+        console.log(err);
+        res.redirect("/signup");
       }
-      return res.status(200).json({ success: `logged in ${user.username}` });
-    });
-  })(req, res, next);
+      passport.authenticate("local")(req, res, () => {
+        res.redirect("/profile");
+      });
+    }
+  );
+});
+
+//Route for login
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/profile",
+    failureRedirect: "/login",
+  }),
+  (req, res) => {}
+);
+
+//Route for logout
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/login");
 });
 
 module.exports = router;
