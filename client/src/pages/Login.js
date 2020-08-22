@@ -8,7 +8,6 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
 
-
 const Login = ({ setUser }) => {
   const [error, setError] = useState(false);
   const [signup, setSignup] = useState(false);
@@ -66,9 +65,13 @@ const Login = ({ setUser }) => {
       });
   };
 
-  const onSignupClick = () => { setSignup(true) };
+  const onSignupClick = () => {
+    setSignup(true);
+  };
 
-  return signup ? <Redirect to="/signup" /> : (
+  return signup ? (
+    <Redirect to="/signup" />
+  ) : (
     <Card className={classes.root}>
       <CardContent>
         <form noValidate autoComplete="off">
@@ -95,16 +98,16 @@ const Login = ({ setUser }) => {
               }}
             />
           ) : (
-              <TextField
-                id="standard"
-                label="Password"
-                defaultValue=""
-                type="password"
-                onChange={(e) => {
-                  setLoginInfo({ ...loginInfo, password: e.target.value });
-                }}
-              />
-            )}
+            <TextField
+              id="standard"
+              label="Password"
+              defaultValue=""
+              type="password"
+              onChange={(e) => {
+                setLoginInfo({ ...loginInfo, password: e.target.value });
+              }}
+            />
+          )}
         </form>
       </CardContent>
       <br />
