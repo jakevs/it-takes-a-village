@@ -11,24 +11,23 @@ import API from "../../utils/userAPI";
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#2E8B57",
+    backgroundColor: "#2E8B57"
   },
 
   bigAvatar: {
     height: 100,
     width: 100,
-    marginRight: 10,
+    marginRight: 10
   },
   aboutMe: {
     color: "white",
-    display: 'flex',
-    flexWrap: 'wrap',
-
+    display: "flex",
+    flexWrap: "wrap"
   },
   button: {
     color: "white",
-    paddingTop: 10,
-  },
+    paddingTop: 10
+  }
 });
 
 export default function Menu() {
@@ -52,12 +51,12 @@ export default function Menu() {
   };
 
   const handleSubmit = () => {
-    API.updateUser({
-      about: formObject.about,
-    }).then((res) => {
-      console.log(about);
-      loadAbout();
-    });
+    // API.updateUser({
+    //   about: formObject.about,
+    // }).then((res) => {
+    //   console.log(about);
+    //   loadAbout();
+    // });
   };
 
   return (
