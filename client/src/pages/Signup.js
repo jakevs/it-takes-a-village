@@ -17,23 +17,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#2E8B57",
+    backgroundColor: "#2E8B57"
   },
   form: {
     width: "100%",
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#2E8B57",
     "&:hover": {
-      backgroundColor: "#349E63",
-    },
-  },
+      backgroundColor: "#349E63"
+    }
+  }
 }));
 
 export default function Signup() {
@@ -55,7 +55,7 @@ export default function Signup() {
       lastName: formObject.lastName,
       email: formObject.email,
       password: formObject.password,
-      zip: formObject.zip,
+      zip: formObject.zip
     })
       .then(console.log("user added"))
       .then(history.push("/profile"))
@@ -129,6 +129,7 @@ export default function Signup() {
                 autoComplete="zip"
                 name="zip"
                 variant="outlined"
+                type="number"
                 required
                 fullWidth
                 id="zip"
