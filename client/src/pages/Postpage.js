@@ -18,35 +18,38 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 30,
     width: 275,
     height: 250,
-    color: "white",
+    color: "white"
+  },
+  head: {
+    color: "#2E8B57"
   },
   paper: {
     maxWidth: 400,
     margin: `${theme.spacing(1)}px auto`,
-    padding: theme.spacing(2),
+    padding: theme.spacing(2)
   },
   form: {
     justifyContent: "center",
-    marginTop: 75,
+    marginTop: 75
   },
   postInput: {
     width: 300,
-    marginTop: 20,
+    marginTop: 20
   },
   postTitle: {
-    color: "white",
+    color: "white"
   },
   flexdiv: {
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "wrap"
   },
   submitBtn: {
     marginTop: 10,
     backgroundColor: "#2E8B57",
     "&:hover": {
-      backgroundColor: "#349E63",
-    },
-  },
+      backgroundColor: "#349E63"
+    }
+  }
 }));
 
 function Posts() {
@@ -76,7 +79,7 @@ function Posts() {
 
     API.savePost({
       title: formObject.title,
-      content: formObject.content,
+      content: formObject.content
     })
       .then((res) => loadPosts())
       .then(
@@ -93,7 +96,7 @@ function Posts() {
   return (
     <Grid container spacing={3}>
       <Grid item xs={9} sm={9}>
-        <h1>Recent Posts</h1>
+        <h1 className={classes.head}>Recent Posts</h1>
         {posts.length ? (
           <div className={classes.flexdiv}>
             {posts.map((post) => {

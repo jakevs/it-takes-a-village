@@ -73,11 +73,13 @@ export default function Menu() {
           {/* <AccountCircle /> */}
           <TextField
             label="About Me"
+            labelColor="white"
             multiline
             rows={4}
             className={classes.aboutMe}
             name="about"
             placeholder="Ex. (An experienced electrician that was recently let go of work due to COVID-19.)"
+            color="white"
             onChange={handleInputChange}
           />
           <Button onClick={handleSubmit} className={classes.button}>
